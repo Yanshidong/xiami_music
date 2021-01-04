@@ -1,0 +1,749 @@
+.rjs-player {
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    user-select: none;
+    transition: opacity 1.5s,transform .25s,-webkit-transform .25s;
+    /* max-width: 1440px; */
+    opacity: 1;
+    transform: translateY(0px);
+    bottom: 0px;
+    max-width: 1440px;
+}
+.player-list-panel {
+}
+.player-progress {
+    position: relative;
+    z-index: 1;
+}
+.player-progress .range {
+    height: 2px;
+    /*   width: 90%; */
+    position: relative;
+    background: #f2f2f2;
+}
+.player-progress .range .bar {
+    right: 48.5274%;
+    padding-right: 53px;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    border-radius: 1px;
+    background: -webkit-gradient(
+            linear,
+            left top,
+            right top,
+            from(transparent),
+            color-stop(20%, #ff410f)
+    );
+    background: -o-linear-gradient(left, transparent, #ff410f 20%);
+    background: linear-gradient(90deg, transparent, #ff410f 20%);
+    background-origin: content-box;
+}
+.player-progress .range .bar .handle{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    position: absolute;
+    top: -9px;
+    left: 100%;
+    height: 20px;
+    width: 96px;
+    line-height: 20px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #000;
+    opacity: .8;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.4);
+    text-align: center;
+    z-index: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-left: -68.699px;
+}
+.player-bar {
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    position: relative;
+    height: 72px;
+    min-width: 850px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    display: flex;
+    background-color: #FFF;
+    box-shadow: 0 1px 0 inset #F2F2F2;
+}
+.player-bar .main-control-wrapper{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    height: 72px;
+    line-height: 72px;
+}
+.player-bar .main-control-wrapper .main-control{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    line-height: 72px;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    width: 120px;
+    min-width: 120px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.player-bar .main-control-wrapper .prev{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    line-height: 72px;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+    font-size: 24px;
+    cursor: pointer;
+    width: 24px;
+    height: 72px;
+    /*background: yellow;*/
+}
+.player-bar .main-control-wrapper .next{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    line-height: 72px;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+    font-size: 24px;
+    cursor: pointer;
+    width:24px;
+    height: 72px;
+    /*background: yellowgreen;*/
+}
+.player-bar .main-control-wrapper .play-btn{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    height: 37px;
+    width: 37px;
+    padding: 5px;
+    color: #fff;
+    background-color: #ff410f;
+    border-radius: 50%;
+    font-size: 37px;
+    line-height: 37px;
+    margin-left: 1px;
+    cursor: pointer;
+}
+.player-bar .main-control-wrapper .play-btn span{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    font-size: 37px;
+    line-height: 37px;
+    cursor: pointer;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+}
+.player-bar .tuning{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    position: absolute;
+    height: 100%;
+    right: 105px;
+    width: 332px;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.player-bar .tuning .volume-control{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-right: 15px;
+}
+.player-bar .tuning .volume-control .volume-mode{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+    margin-right: 2px;
+    font-size: 24px;
+    cursor: pointer;
+
+    width: 24px;
+}
+/*音量条*/
+.player-bar .tuning .volume-control .range{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    position: relative;
+    width: 80px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #ccc;
+    cursor: pointer;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+/*音量进度条，修改值*/
+.player-bar .tuning .volume-control .range .bar{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    cursor: pointer;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    position: relative;
+    height: 100%;
+    border-radius: 1px;
+    background-color: #ff410f;
+}
+.player-bar .tuning .volume-control .range:before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    z-index: 1;
+}
+.player-bar .tuning .volume-control .range .bar .handle{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    background-color: #FF410F;
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    height: 6px;
+    width: 6px;
+    border-radius: 1px;
+    transform: rotate(45deg);
+    z-index: 1;
+    cursor: pointer;
+}
+/*调整小圆点可点击范围*/
+.player-bar .tuning .volume-control .range .bar .handle:before{
+    content: "";
+    position: absolute;
+    top: -3px;
+    bottom: -3px;
+    left: -3px;
+    right: -3px;
+    z-index: 1;
+}
+.player-bar .tuning .play-mode-control{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    margin-right: 15px;
+}
+.player-bar .tuning .lyric-control{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+    margin-right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.player-bar .tuning .play-list-control{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+    margin-right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.player-bar .tuning .immersion-control{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+/*左侧音乐信息面板*/
+.player-bar .music{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    display: flex;
+    position: absolute;
+    height: 100%;
+    left: 105px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+/*音乐封面*/
+.player-bar .music .cover-link{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+    width: 72px;
+    height: 72px;
+    display: inline-block;
+    overflow: hidden;
+}
+.player-bar .music .cover-link .transitive-image{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: inherit;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    position: relative;
+    user-select: none;
+    height: 100%;
+    width: 100%;
+}
+.player-bar .music .cover-link .transitive-image image{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: inherit;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    border-style: none;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s;
+}
+.player-bar .music .cover-link .transitive-image .active{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: inherit;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    border-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s;
+    opacity: 1;
+}
+/*音乐名称和作者*/
+.player-bar .music .info{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    margin-left: 8px;
+    width: 130px;
+}
+/*歌曲名称*/
+.player-bar .music .info .scroll{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity .5s;
+}
+.player-bar .music .info .scroll .content{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    white-space: nowrap;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    display: inline-block;
+    transition: none;
+}
+.player-bar .music .info .scroll .content .title{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    white-space: nowrap;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    background-color: transparent;
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 14px;
+    line-height: 18px;
+}
+.player-bar .music .info .singers{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-weight: 300;
+    width: 100%;
+    margin-top: 4px;
+    color: #999;
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.player-bar .music .info .singers a{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    font-weight: 300;
+    font-size: 12px;
+    white-space: nowrap;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+}
+/*选择音质*/
+.player-bar .music .select{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    display: inline-block;
+    margin-left: 8px;
+}
+.player-bar .music .select div:nth-child(1){
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+.player-bar .music .select .quality-selector{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    position: relative;
+    width: 36px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+    border-radius: 3px;
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+}
+.player-bar .music .select .quality-selector span{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    line-height: 18px;
+    cursor: pointer;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+    -webkit-box-flex: 1;
+    flex: 1;
+    display: inline-block;
+    font-size: 18px;
+}
+.player-bar .music .select .context-menu-wrapper{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+.player-bar .music .select .context-menu-wrapper div{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+/*收藏*/
+.player-bar .music .favorite{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+    margin-left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+/*漫游*/
+.player-bar .music .roma{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+    margin-left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+/*更多*/
+.player-bar .music .more{
+    line-height: 1.15;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    font-family: iconfont;
+    text-align: center;
+    user-select: none;
+    margin-left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
