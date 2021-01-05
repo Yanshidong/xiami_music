@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./iconfont.css">
     <script src="vue.min.js" type="text/javascript"></script>
@@ -12,146 +13,189 @@
         @import "index.css";
     </style>
 </head>
+
 <body style="max-width: 1440px;
     margin: 0 auto;
     height: 100%;background-color: #eee;">
-<div style="height: 800px;width:100%;background: yellow"></div>
-<div style="height: 800px;width:100%;background: rebeccapurple"></div>
-<div style="height: 800px;width:100%;background: black"></div>
-<div style="height: 800px;width:100%;background: #007aff"></div>
-<div class="rjs-player" id="rjs-player">
-    <div class=player-list-panel></div>
-    <div class="player-progress">
-        <div class="range">
-            <div class="bar">
-                <div class="handle">
-                    02:24/04:46
+    <div style="height: 800px;width:100%;background: yellow"></div>
+    <div style="height: 800px;width:100%;background: rebeccapurple"></div>
+    <div style="height: 800px;width:100%;background: black"></div>
+    <div style="height: 800px;width:100%;background: #007aff"></div>
+    <div class="rjs-player" id="rjs-player">
+        <div class=player-list-panel></div>
+        <div class="player-progress">
+            <div class="range">
+                <div class="bar">
+                    <div class="handle">
+                        02:24/04:46
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="player-bar">
+            <div class="music">
+                <a href="http://localhost/1.jpg" class="cover-link">
+                    <div class="transitive-image">
+                        <img class="active"
+                            src="https://pic.xiami.net/images/album/img73/36499573/8365086691436508670.jpg?x-oss-process=image/resize,limit_0,m_fill,s_144/quality,q_80/format,jpg"
+                            alt="">
+                        <img src="http://localhost/1.jpg" alt="">
+                    </div>
+                </a>
+                <div class="info">
+                    <div class="scroll">
+                        <div class="content">
+                            <a class="title" href="http://localhost/1.jpg">{{ music.title }}</a>
+                        </div>
+                    </div>
+                    <div class="singers">
+                        <a href="http://localhost/1.jpg">{{ music.artist }}</a>
+                    </div>
+                </div>
+                <div class="select">
+                    <div>
+                        <div class="quality-selector" title="音质选择">
+                            <span class="iconfont icon-HQ15"></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="context-menu-wrapper">
+                        <div></div>
+                    </div>
+                </div>
+                <div :class="music.star?'favorite iconfont icon-xihuan':'favorite iconfont icon-shoucang'"
+                    title="收藏" @click="switchFavorite"></div>
+                <div class="roma iconfont icon-player_danqumanyou_" title="漫游"></div>
+                <div class="more iconfont icon-gengduo" title="更多"></div>
+            </div>
+            <div class="main-control-wrapper">
+                <div class="main-control">
+                    <div class="prev iconfont icon-shangyishou" title="上一首"></div>
+                    <div class="play-btn" v-on:click="changePlayerStatus">
+                        <span :class="main_play_btn_class" title="暂停"></span>
+                    </div>
+                    <div class="next iconfont icon-xiayishou" title="下一首"></div>
+                </div>
+            </div>
+            <div class="tuning">
+                <div class="volume-control">
+                    <div class="volume-mode iconfont icon-yinliang1" title="静音"></div>
+                    <div class="range" @click.stop="changeVolume">
+                        <div class="bar" :style="style_volume_width">
+                            <div class="handle" @mousedown.stop="changeVolumeStart($event)" ref='handle'></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="play-mode-control">
+                    <div title="顺序" class="iconfont icon-xunhuanbofang"></div>
+                </div>
+                <div class="lyric-control iconfont icon-ci24" title="歌词"></div>
+                <div class="play-list-control iconfont icon-bofangliebiao24" title="播放列表"></div>
+                <!-- <div class="immersion-control iconfont icon-quanping" title="沉浸模式">x{{positionX}},y{{positionY}}</div> -->
             </div>
         </div>
     </div>
-    <div class="player-bar">
-        <div class="music">
-            <a href="http://localhost/1.jpg" class="cover-link">
-                <div class="transitive-image">
-                    <img class="active" src="https://pic.xiami.net/images/album/img73/36499573/8365086691436508670.jpg?x-oss-process=image/resize,limit_0,m_fill,s_144/quality,q_80/format,jpg" alt="">
-                    <img src="http://localhost/1.jpg" alt="">
-                </div>
-            </a>
-            <div class="info">
-                <div class="scroll">
-                    <div class="content">
-                        <a class="title" href="http://localhost/1.jpg">{{ music.title }}</a>
-                    </div>
-                </div>
-                <div class="singers">
-                    <a href="http://localhost/1.jpg">{{ music.artist }}</a>
-                </div>
-            </div>
-            <div class="select">
-                <div>
-                    <div class="quality-selector" title="音质选择">
-                        <span class="iconfont icon-HQ15"></span>
-                        <span></span>
-                    </div>
-                </div>
-                <div class="context-menu-wrapper">
-                    <div></div>
-                </div>
-            </div>
-            <div :class="music.star?'favorite iconfont icon-yishoucang-copy':'favorite iconfont icon-shoucang'" title="收藏"></div>
-            <div class="roma iconfont icon-player_danqumanyou_" title="漫游"></div>
-            <div class="more iconfont icon-gengduo" title="更多"></div>
-        </div>
-        <div class="main-control-wrapper">
-            <div class="main-control">
-                <div class="prev iconfont icon-shangyishou" title="上一首"></div>
-                <div class="play-btn" v-on:click="changePlayerStatus">
-                    <span :class="main_play_btn_class" title="暂停"></span>
-                </div>
-                <div class="next iconfont icon-xiayishou" title="下一首"></div>
-            </div>
-        </div>
-        <div class="tuning">
-            <div class="volume-control">
-                <div class="volume-mode iconfont icon-yinliang1" title="静音"></div>
-                <div class="range" v-on:click="changeVolume">
-                    <div class="bar" :style="style_volume_width">
-                        <div class="handle"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="play-mode-control">
-                <div title="顺序" class="iconfont icon-xunhuanbofang"></div>
-            </div>
-            <div class="lyric-control iconfont icon-ci24" title="歌词"></div>
-            <div class="play-list-control iconfont icon-bofangliebiao24" title="播放列表"></div>
-            <div class="immersion-control iconfont icon-quanping" title="沉浸模式"></div>
-        </div>
-    </div>
-</div>
-<script type="text/javascript">
-    new Vue({
-        el: '#rjs-player',
-        data: {
-            music:{
-                artist: "李昕融 / 樊桐舟 / 李凯稠",
-                date: "2012-12-12",
-                description: "",
-                ext: "",
-                group: "",
-                length: "",
-                pic: "",
-                size: "",
-                src: "",
-                title: "你笑起来真好看",
-                star: true,
-                quality: 'hq',//sd
+    <script type="text/javascript">
+        new Vue({
+            el: '#rjs-player',
+            data: {
+                music: {
+                    artist: "李昕融 / 樊桐舟 / 李凯稠",
+                    date: "2012-12-12",
+                    description: "",
+                    ext: "",
+                    group: "",
+                    length: "",
+                    pic: "",
+                    size: "",
+                    src: "",
+                    title: "你笑起来真好看",
+                    star: false,
+                    quality: 'hq',//sd
+                },
+                volume: 100,
+                volumeBarOffsetX: 0,
+                playerStatus: 'pause',//pause,start
+                positionX: 0,
+                positionY: 0
             },
-            volume: 100,
-            volumeBarOffsetX:0,
-            playerStatus: 'pause',//pause,start
-        },
-        computed: {
-            // a computed getter
-            style_volume_width: function () {
-                return 'width:' + this.volume + '%;'
-            },
-            main_play_btn_class: function () {
-                switch (this.playerStatus) {
-                    case "pause":
-                        return 'iconfont icon-zanting'
-                    case "play":
-                        return 'iconfont icon-bofang'
-                    default:
+            computed: {
+                // a computed getter
+                style_volume_width: function () {
+                    return 'width:' + this.volume + '%;'
+                },
+                main_play_btn_class: function () {
+                    switch (this.playerStatus) {
+                        case "pause":
+                            return 'iconfont icon-zanting'
+                        case "play":
+                            return 'iconfont icon-bofang'
+                        default:
 
-                }
-                return 'iconfont icon-zanting'
-            }
-        },
-        methods:{
-            changePlayerStatus(){
-                switch (this.playerStatus) {
-                    case "pause":
-                        this.playerStatus='play'
-                        break
-                    case "play":
-                        this.playerStatus='pause'
-                        break
-                    default:
-
+                    }
+                    return 'iconfont icon-zanting'
                 }
             },
-            changeVolume(e){
-                // this.volumeBarOffsetX=this.volumeBarOffsetX+e.offsetX
-                console.log(e)
-                console.log("x:"+e.layerX)
-                this.volume=(e.layerX/80)*100
+            methods: {
+                changePlayerStatus() {
+                    switch (this.playerStatus) {
+                        case "pause":
+                            this.playerStatus = 'play'
+                            break
+                        case "play":
+                            this.playerStatus = 'pause'
+                            break
+                        default:
 
-                console.log("1998")
+                    }
+                },
+                changeVolume(e) {
+                    // this.volumeBarOffsetX=this.volumeBarOffsetX+e.offsetX
+                    var el1 = e.currentTarget;
+                    var el2 = e.target;
+                    if (el1 == el2) {
+                        this.volume = (e.offsetX / 80) * 100;
+                        this.$refs.handle.style.left=e.offsetX+'px'
+                    }
+                },
+                changeVolumeStart(e) {
+                    e.stopPropagation()
+                    let odiv = e.target       //获取目标元素
+
+                    //算出鼠标相对元素的位置
+                    let disX = e.clientX - odiv.offsetLeft
+                    let disY = e.clientY - odiv.offsetTop
+                    document.onmousemove = (e) => {       //鼠标按下并移动的事件
+                        //用鼠标的位置减去鼠标相对元素的位置，得到元素的位置
+                        let left = e.clientX - disX
+                        let top = e.clientY - disY
+
+                        //绑定元素位置到positionX和positionY上面
+                        this.positionX = top
+                        this.positionY = left
+
+                        //移动当前元素
+                        left = left > 80 ? 80 : left
+                        left = left < 0 ? 0 : left
+                        odiv.style.left = left + 'px'
+                        this.volume = left / 80 * 100;
+                    };
+                    document.onmouseup = (e) => {
+                        document.onmousemove = null
+                        document.onmouseup = null
+                    }
+                },
+                switchFavorite() {
+                    // 切换 收藏状态
+                    if(this.music.star){
+                        this.music.star=false
+                    }else{
+                        this.music.star=true
+                    }
+                }
             }
-        }
-    })
-</script>
+        })
+    </script>
 </body>
+
 </html>
