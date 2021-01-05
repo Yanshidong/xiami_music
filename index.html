@@ -86,8 +86,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="play-mode-control">
-                    <div title="顺序" class="iconfont icon-xunhuanbofang"></div>
+                <div class="play-mode-control" @click="switchPlayMode">
+                    <div title="顺序" :class="class_play_mode"></div>
                 </div>
                 <div class="lyric-control iconfont icon-ci24" title="歌词"></div>
                 <div class="play-list-control iconfont icon-bofangliebiao24" title="播放列表" @click="console.log(volume)"></div>
@@ -119,6 +119,7 @@
                 volumeBarOffsetX: 0,
                 playerStatus: 'pause',//pause,start
                 roma_switch: false,//roma switch status
+                playMode:1,//播放模式,1:列表循环,2,单曲循环,3:随机播放,4:列表播放
                 positionX: 0,
                 positionY: 0,
 
@@ -154,6 +155,20 @@
                         return 'background-color:gray'
                     }else{
                         return ''
+                    }
+                },
+                class_play_mode: function () {
+                    switch (this.playMode){
+                        case 1:
+                            return 'iconfont icon-xunhuanbofang'
+                        case 2:
+                            return 'iconfont icon-danquxunhuan-1'
+                        case 3:
+                            return 'iconfont icon-suijibofang-4'
+                        case 4:
+                            return 'iconfont icon-xunhuanbofang'
+                        default:
+                            return 'iconfont icon-icon_liebiaobofang_px'
                     }
                 },
             },
@@ -232,6 +247,13 @@
                         this.handleStyleLeft=this.$refs.handle.style.left
                         this.$refs.handle.style.left=0
                         this.volume=0
+                    }
+                },
+                switchPlayMode() {
+                    if(this.playMode<3){
+                        this.playMode= this.playMode+1
+                    }else{
+                        this.playMode=1
                     }
                 },
             }
