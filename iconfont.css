@@ -118,6 +118,7 @@
 
 .icon-player_dakaimanyou_:before {
   content: "\e74f";
+  color: darkorange;
 }
 
 .icon-quanping:before {

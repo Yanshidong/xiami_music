@@ -65,7 +65,7 @@
                 </div>
                 <div :class="music.star?'favorite iconfont icon-xihuan':'favorite iconfont icon-shoucang'"
                     title="收藏" @click="switchFavorite"></div>
-                <div class="roma iconfont icon-player_danqumanyou_" title="漫游"></div>
+                <div :class="roma_switch?'roma iconfont icon-player_dakaimanyou_':'roma iconfont icon-player_danqumanyou_'" title="漫游" @click="switchRoma"></div>
                 <div class="more iconfont icon-gengduo" title="更多"></div>
             </div>
             <div class="main-control-wrapper">
@@ -116,8 +116,9 @@
                 volume: 100,
                 volumeBarOffsetX: 0,
                 playerStatus: 'pause',//pause,start
+                roma_switch: false,//roma switch status
                 positionX: 0,
-                positionY: 0
+                positionY: 0,
             },
             computed: {
                 // a computed getter
@@ -191,6 +192,14 @@
                         this.music.star=false
                     }else{
                         this.music.star=true
+                    }
+                },
+                switchRoma() {
+                    // 切换漫游
+                    if(this.roma_switch){
+                        this.roma_switch=false
+                    }else {
+                        this.roma_switch = true
                     }
                 }
             }
