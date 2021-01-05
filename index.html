@@ -79,7 +79,7 @@
             </div>
             <div class="tuning">
                 <div class="volume-control">
-                    <div class="volume-mode iconfont icon-yinliang1" title="静音"></div>
+                    <div :class="class_volume_mode" title="静音" @click="switchVolumeMute"></div>
                     <div class="range" @click.stop="changeVolume">
                         <div class="bar" :style="style_volume_width">
                             <div class="handle" @mousedown.stop="changeVolumeStart($event)" ref='handle'></div>
@@ -114,11 +114,13 @@
                     quality: 'hq',//sd
                 },
                 volume: 100,
+                volumeTmp:0,
                 volumeBarOffsetX: 0,
                 playerStatus: 'pause',//pause,start
                 roma_switch: false,//roma switch status
                 positionX: 0,
                 positionY: 0,
+
             },
             computed: {
                 // a computed getter
@@ -135,7 +137,17 @@
 
                     }
                     return 'iconfont icon-zanting'
-                }
+                },
+                class_volume_mode: function () {
+                  switch(this.volume){
+                      case 0:
+                        return 'volume-mode iconfont icon-jingyin'
+                      case 80:
+                        return 'volume-mode iconfont icon-shengyin'
+                      default:
+                        return 'volume-mode iconfont icon-shengyin'
+                  }
+                },
             },
             methods: {
                 changePlayerStatus() {
@@ -200,6 +212,14 @@
                         this.roma_switch=false
                     }else {
                         this.roma_switch = true
+                    }
+                },
+                switchVolumeMute(){
+                    if(this.volume===0){
+                        this.volume=this.volumeTmp
+                    }else{
+                        this.volumeTmp=this.volume
+                        this.volume=0
                     }
                 }
             }
