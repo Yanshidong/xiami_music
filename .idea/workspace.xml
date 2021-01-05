@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4e340389-6999-467a-968b-a60ddbd6a697" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/iconfont.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -65,7 +64,7 @@
       <workItem from="1609213554220" duration="633000" />
       <workItem from="1609244500939" duration="722000" />
       <workItem from="1609744825499" duration="2472000" />
-      <workItem from="1609808559037" duration="5388000" />
+      <workItem from="1609808559037" duration="9843000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -95,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609813208980</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="播放模式切换,额，怎么感觉我的icon颜色那么淡呢">
+      <created>1609814349739</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609814349739</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +112,7 @@
     <MESSAGE value="漫游开关icon" />
     <MESSAGE value="设置left之前" />
     <MESSAGE value="音量条貌似闪现了个bug，没有复现." />
-    <option name="LAST_COMMIT_MESSAGE" value="音量条貌似闪现了个bug，没有复现." />
+    <MESSAGE value="播放模式切换,额，怎么感觉我的icon颜色那么淡呢" />
+    <option name="LAST_COMMIT_MESSAGE" value="播放模式切换,额，怎么感觉我的icon颜色那么淡呢" />
   </component>
 </project>

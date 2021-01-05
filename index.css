@@ -748,3 +748,98 @@
     font-size: 24px;
     cursor: pointer;
 }
+/*歌词面板*/
+.rjs-player .play-list-container{
+    position: fixed;
+    bottom: 77px;
+    right: 120px;
+    -webkit-transition: opacity .3s,-webkit-transform .3s;
+    transition: opacity .3s,-webkit-transform .3s;
+    -o-transition: opacity .3s,transform .3s;
+    transition: opacity .3s,transform .3s;
+    transition: opacity .3s,transform .3s,-webkit-transform .3s;
+}
+.rjs-player .play-list-container .play-list{
+    height: 575px;
+    width: 570px;
+    padding: 30px;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 4px 15px rgba(0,0,0,.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,.1);
+}
+.rjs-player .play-list-container .play-list .tabs{
+    user-select: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-weight: 300;
+    font-size: 16px;
+}.rjs-player .play-list-container .play-list .close{
+     position: absolute;
+     top: 30px;
+     right: 30px;
+     font-size: 32px;
+     cursor: pointer;
+}
+.rjs-player .play-list-container .play-list .tabs .tab{
+     position: relative;
+     margin-left: 40px;
+     padding: 7px 0;
+     white-space: nowrap;
+     cursor: pointer;
+    font-weight: 500;
+    /*border: 1px solid red;*/
+}
+.rjs-player .play-list-container .play-list .tabs .tab:first-child{
+    margin-left: 0;
+}
+.rjs-player .play-list-container .play-list .tabs .tab:after{
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 100%;
+    height: 3px;
+    opacity: 0;
+    background-color: #4a4a4a;
+    -webkit-transition: right .25s,opacity .25s;
+    -o-transition: right .25s,opacity .25s;
+    transition: right .25s,opacity .25s;
+}
+/*歌曲和歌词内容*/
+.rjs-player .play-list-container .play-list .table{
+    position: relative;
+    margin-top: 30px;
+    height: 405px;
+    padding-bottom: 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+.rjs-player .play-list-container .play-list .table .table-container{
+    height: 100%;
+    overflow-y: auto;
+}
+.rjs-player .play-list-container .play-list .table .table-container table{
+    position: relative;
+    width: 100%;
+    table-layout: fixed;
+    font-weight: 300;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.rjs-player .play-list-container .play-list .table .table-container table thead{
+    line-height: 50px;
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.rjs-player .play-list-container .play-list .table .table-container table tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
