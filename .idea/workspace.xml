@@ -64,7 +64,7 @@
       <workItem from="1609213554220" duration="633000" />
       <workItem from="1609244500939" duration="722000" />
       <workItem from="1609744825499" duration="2472000" />
-      <workItem from="1609808559037" duration="2909000" />
+      <workItem from="1609808559037" duration="4341000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -80,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609810772648</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="设置left之前">
+      <created>1609812030920</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609812030920</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,6 +96,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="很强的队友，靠谱" />
     <MESSAGE value="漫游开关icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="漫游开关icon" />
+    <MESSAGE value="设置left之前" />
+    <option name="LAST_COMMIT_MESSAGE" value="设置left之前" />
   </component>
 </project>

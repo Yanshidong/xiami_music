@@ -82,7 +82,7 @@
                     <div :class="class_volume_mode" title="静音" @click="switchVolumeMute"></div>
                     <div class="range" @click.stop="changeVolume">
                         <div class="bar" :style="style_volume_width">
-                            <div class="handle" @mousedown.stop="changeVolumeStart($event)" ref='handle'></div>
+                            <div class="handle" :style="style_handle_dot_color" @mousedown.stop="changeVolumeStart($event)" ref='handle'></div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                     <div title="顺序" class="iconfont icon-xunhuanbofang"></div>
                 </div>
                 <div class="lyric-control iconfont icon-ci24" title="歌词"></div>
-                <div class="play-list-control iconfont icon-bofangliebiao24" title="播放列表"></div>
+                <div class="play-list-control iconfont icon-bofangliebiao24" title="播放列表" @click="console.log(volume)"></div>
                 <!-- <div class="immersion-control iconfont icon-quanping" title="沉浸模式">x{{positionX}},y{{positionY}}</div> -->
             </div>
         </div>
@@ -115,6 +115,7 @@
                 },
                 volume: 100,
                 volumeTmp:0,
+                handleStyleLeft:0,
                 volumeBarOffsetX: 0,
                 playerStatus: 'pause',//pause,start
                 roma_switch: false,//roma switch status
@@ -147,6 +148,13 @@
                       default:
                         return 'volume-mode iconfont icon-shengyin'
                   }
+                },
+                style_handle_dot_color: function () {
+                    if(this.volume===0) {
+                        return 'background-color:gray'
+                    }else{
+                        return ''
+                    }
                 },
             },
             methods: {
@@ -215,13 +223,17 @@
                     }
                 },
                 switchVolumeMute(){
+                    // 切换静音状态
                     if(this.volume===0){
                         this.volume=this.volumeTmp
+                        this.$refs.handle.style.left=this.handleStyleLeft
                     }else{
                         this.volumeTmp=this.volume
+                        this.handleStyleLeft=this.$refs.handle.style.left
+                        this.$refs.handle.style.left=0
                         this.volume=0
                     }
-                }
+                },
             }
         })
     </script>
