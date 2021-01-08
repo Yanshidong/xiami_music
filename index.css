@@ -1,3 +1,20 @@
+*{
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+*, :after, :before {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
 .rjs-player {
     line-height: 1.15;
     --swiper-theme-color: #007aff;
@@ -817,7 +834,7 @@
     padding-bottom: 20px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 .rjs-player .play-list-container .play-list .table .table-container{
     height: 100%;
@@ -837,9 +854,181 @@
     vertical-align: middle;
     border-color: inherit;
 }
+.rjs-player .play-list-container .play-list .table .table-container table thead th{
+    padding: 0 9px;
+    text-align: left;
+    font-weight: 300;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
 
 .rjs-player .play-list-container .play-list .table .table-container table tbody{
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
+}
+.rjs-player .play-list-container .play-list .table .table-container table tbody tr{
+    height: 50px;
+    line-height: 50px;
+    -webkit-transition: background-color .2s linear;
+    -o-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.rjs-player .play-list-container .play-list .table .table-container table tbody tr td{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-size: 14px;
+    font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    font-weight: 300;
+    border-collapse: collapse;
+    border-spacing: 0;
+    -webkit-user-drag: element;
+    user-select: none;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    height: 50px;
+    line-height: 50px;
+    transition: background-color .2s linear;
+}
+/* 小图标貌似是*/
+.play-list .table tr .duration-container {
+    position: relative;
+    text-align: right;
+}
+.play-list .table tr .duration-container .duration {
+    padding-right: 10px;
+}
+.play-list .table tr .operations {
+    /*display: none;*/
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    opacity: 0;
+    height: 0;
+}
+.play-list .table tr .duration-container .iconfont {
+    display: inline-block;
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+    vertical-align: middle;
+    margin-top: -4px;
+}
+.play-list .table tr .duration-container .operations .iconfont.roma {
+    font-size: 24px;
+    line-height: 50px;
+}
+.rjs-player table{
+    position: relative;
+    width: 100%;
+    table-layout: fixed;
+    font-weight: 300;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.rjs-player .table table tbody tr {
+    height: 50px;
+    line-height: 50px;
+    -webkit-transition: background-color .2s linear;
+    -o-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+}
+.rjs-player .table table tbody tr td {
+    padding: 0 9px;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.music-list-tr td>div>span.index{
+    opacity: 1;
+}
+.music-list-tr:hover{
+    background-color: rgb(250,250,250);
+    /*color: red;*/
+    display: block;
+}
+.music-list-tr:hover td>div>div.operations{
+    /*background-color: rgb(250,250,250);*/
+    color: red;
+    /*display: block;*/
+    opacity: 1;
+    height: 50px;
+}
+.music-list-tr:hover td>div>span.duration,.music-list-tr:hover:hover td>div>span.index{
+    opacity: 0;
+    height: 0;
+    display: none;
+ }
+.music-list-tr:hover td>div>span.index{
+    opacity: 0;
+    height: 0;
+    /*display: none;*/
+}
+.rjs-player .play-list .table tr .index-container {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.table table tbody tr td .em {
+    color: #4a4a4a;
+    font-weight: 500;
+}
+/*一排小图标*/
+.play-list .table tr .index-container .audio-icon {
+    display: none;
+}
+.audio-icon{
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+}
+.play-list .table tr .index-container .play-btn {
+    display: none;
+    font-size: 24px;
+    text-align: left;
+    cursor: pointer;
+}
+/*歌曲列表的脚-总歌曲数*/
+.rjs-player .play-list .footer .count {
+    margin-left: 15px;
+}
+.rjs-player .play-list .footer {
+    padding-top: 30px;
+    border-top: 1px solid #ededed;
+    font-size: 14px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.play-list .footer .add-to-collect-select, .play-list .footer .edit {
+    color: #ff410f;
+    cursor: pointer;
+    margin-left: auto;
+
+}
+.play-list .footer .add-to-collect-select, .play-list .footer .clear {
+    margin-left: 30px;
+    color: #ff410f;
+    cursor: pointer;
 }
