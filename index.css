@@ -48,9 +48,19 @@ a {
     /*   width: 90%; */
     position: relative;
     background: #f2f2f2;
+    cursor: pointer;
+}
+.player-progress .range:before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    z-index: 1;
 }
 .player-progress .range .bar {
-    right: 48.5274%;
+    /*right: 100%;*/
     padding-right: 53px;
     position: absolute;
     left: 0;

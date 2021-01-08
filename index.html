@@ -60,7 +60,7 @@
                                 <td>
                                     <div class="singers COMPACT"><a
                                             href="/artist/fc1a46e?spm=a2oj1.12028080.player.2.20156d99LputUC"
-                                            data-spm-anchor-id="a2oj1.12028080.player.2">阿信</a></div>
+                                            data-spm-anchor-id="a2oj1.12028080.player.2">陈奕迅</a></div>
                                 </td>
                                 <td>
                                     <div class="duration-container not-editing"><span class="duration">03:51</span>
@@ -86,8 +86,8 @@
     </div>
 
     <div class="player-progress">
-        <div class="range">
-            <div class="bar">
+        <div class="range"  @click.stop="changePlayProgress">
+            <div class="bar" ref="handleMusicProgress" :style="player_progress_bar_right">
                 <div class="handle">
                     02:24/04:46
                 </div>
@@ -188,7 +188,9 @@
             positionX: 0,
             positionY: 0,
             musicPlayList:[],
-            musicPlayListLineSelected:undefined
+            musicPlayListLineSelected:undefined,
+            musicDuration:0,
+            musicCurrentTime:0
 
         },
         computed: {
@@ -238,11 +240,21 @@
                         return 'iconfont icon-icon_liebiaobofang_px'
                 }
             },
+            player_progress_bar_right: function () {
+                if(this.musicCurrentTime ===0|| this.musicDuration===0) {
+                    //0
+                    return '100%'
+                }
+                return 100*(1-this.musicCurrentTime/this.musicDuration)+'%'
+            }
         },
         created(){
-            this.musicPlayList=Array(30).fill({id:4,name:'白蛇传主题曲'})
+            this.musicPlayList=Array(30).fill({id:4,name:'倾城 (Live)'})
         },
         methods: {
+            time_second_len_beauty(second_value) {
+                return this.addPreZero(Math.floor(second_value/60))+':'+(second_value%60)
+            },
             changePlayerStatus() {
                 switch (this.playerStatus) {
                     case "pause":
@@ -340,6 +352,24 @@
             selectMusicListLine(index) {
                 console.log(index)
                 this.musicPlayListLineSelected=index
+            },
+            changePlayProgress(e){
+                // this.volumeBarOffsetX=this.volumeBarOffsetX+e.offsetX
+                var el1 = e.currentTarget;
+                var el2 = e.target;
+                if (el1 == el2) {
+                    console.log('el1:'+el1)
+                    console.log(el1)
+                    console.log('el2:'+el2)
+                    console.log(el2)
+                    console.log(e.offsetX)
+                //     // this.volume = (e.offsetX / 80) * 100;
+                    this.setPlayProgress(e.offsetX/14.40)
+                }
+            },
+            setPlayProgress(value) {
+                this.$refs.handleMusicProgress.style.right = (100-value) + '%'
+
             }
         }
     })
