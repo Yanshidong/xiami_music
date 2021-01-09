@@ -89,7 +89,7 @@
         <div class="range"  @click.stop="changePlayProgress">
             <div class="bar" ref="handleMusicProgress" :style="player_progress_bar_right">
                 <div class="handle">
-                    02:24/04:46
+                    {{time_second_len_beauty(musicCurrentTime)}}/{{time_second_len_beauty(musicDuration)}}
                 </div>
             </div>
         </div>
@@ -189,8 +189,8 @@
             positionY: 0,
             musicPlayList:[],
             musicPlayListLineSelected:undefined,
-            musicDuration:0,
-            musicCurrentTime:0
+            musicDuration:136,
+            musicCurrentTime:40
 
         },
         computed: {
@@ -243,9 +243,9 @@
             player_progress_bar_right: function () {
                 if(this.musicCurrentTime ===0|| this.musicDuration===0) {
                     //0
-                    return '100%'
+                    return 'right:100%'
                 }
-                return 100*(1-this.musicCurrentTime/this.musicDuration)+'%'
+                return 'right:'+(100*(1-this.musicCurrentTime/this.musicDuration)).toString()+'%'
             }
         },
         created(){
@@ -253,7 +253,7 @@
         },
         methods: {
             time_second_len_beauty(second_value) {
-                return this.addPreZero(Math.floor(second_value/60))+':'+(second_value%60)
+                return this.addPreZero(Math.floor(second_value/60))+':'+this.addPreZero((second_value%60))
             },
             changePlayerStatus() {
                 switch (this.playerStatus) {
@@ -368,7 +368,8 @@
                 }
             },
             setPlayProgress(value) {
-                this.$refs.handleMusicProgress.style.right = (100-value) + '%'
+                // this.$refs.handleMusicProgress.style.right = (100-value) + '%'
+                this.musicCurrentTime=Math.floor(this.musicDuration*(value/100))
 
             }
         }

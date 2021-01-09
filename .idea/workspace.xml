@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4e340389-6999-467a-968b-a60ddbd6a697" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +68,8 @@
       <workItem from="1610029793510" duration="1634000" />
       <workItem from="1610067333234" duration="14306000" />
       <workItem from="1610090335618" duration="5827000" />
-      <workItem from="1610099074926" duration="548000" />
+      <workItem from="1610099074926" duration="883000" />
+      <workItem from="1610191480857" duration="2051000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -127,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610084670167</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="时长进度条">
+      <created>1610099804114</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610099804114</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +147,7 @@
     <MESSAGE value="音量条貌似闪现了个bug，没有复现." />
     <MESSAGE value="播放模式切换,额，怎么感觉我的icon颜色那么淡呢" />
     <MESSAGE value="加歌词面板." />
-    <option name="LAST_COMMIT_MESSAGE" value="加歌词面板." />
+    <MESSAGE value="时长进度条" />
+    <option name="LAST_COMMIT_MESSAGE" value="时长进度条" />
   </component>
 </project>
