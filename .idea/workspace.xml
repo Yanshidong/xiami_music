@@ -72,7 +72,7 @@
       <workItem from="1610099074926" duration="883000" />
       <workItem from="1610191480857" duration="2425000" />
       <workItem from="1610280427066" duration="1190000" />
-      <workItem from="1610325545388" duration="7789000" />
+      <workItem from="1610325545388" duration="10927000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -144,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610193629284</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="歌曲清单，未知还需要调整下">
+      <created>1610334573561</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610334573561</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +166,7 @@
     <MESSAGE value="加歌词面板." />
     <MESSAGE value="时长进度条" />
     <MESSAGE value="时长进度条关联时长和百分比.&#10;刚刷新时会闪动" />
-    <option name="LAST_COMMIT_MESSAGE" value="时长进度条关联时长和百分比.&#10;刚刷新时会闪动" />
+    <MESSAGE value="歌曲清单，未知还需要调整下" />
+    <option name="LAST_COMMIT_MESSAGE" value="歌曲清单，未知还需要调整下" />
   </component>
 </project>

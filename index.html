@@ -51,7 +51,7 @@
                                             <div class="column " style="animation-delay: -0.6s;"></div>
                                         </div>
                                         <div v-if="playerStatus===0"  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;"></div>
-                                        <div v-else  class="iconfont icon-tingzhi-small operations" style="font-size: 22px;margin-left: -2px;"></div>
+                                        <div v-else  class="iconfont icon-tingzhi-small operations color-red" style="font-size: 22px;margin-left: -2px;"></div>
                                     </div>
                                     <div  v-else class="index-container">
                                         <span  class="em index">{{addPreZero(i)}}</span>
@@ -68,7 +68,7 @@
                                 </td>
                                 <td>
                                     <div class="duration-container not-editing"><span class="duration"  :style="music.id===i?'color:red':''">03:51</span>
-                                        <div class="operations" style="font-size: 20px">
+                                        <div :class="music.id!==i?'operations':'operations color-red'" style="font-size: 20px">
                                             <div class="iconfont icon-player_danqumanyou_" style="font-size: 20px"></div>
                                             <div class="iconfont icon-shoucang" style="font-size: 20px"></div>
                                             <div class="iconfont icon-lajitong" style="font-size: 20px"></div>

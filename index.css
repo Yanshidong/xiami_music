@@ -961,6 +961,7 @@ a {
 }
 .music-list-tr td>div>span.index{
     opacity: 1;
+    line-height: 20px;
 }
 .music-list-tr:hover{
     background-color: rgb(250,250,250);
@@ -1000,10 +1001,14 @@ div.play-list-container table > tbody > tr > td:nth-child(1){
     height: 18px;
     width: 49px;
     margin: 0 7px;
+    line-height: 20px;
 }
 .table table tbody tr td .em {
     color: #4a4a4a;
     font-weight: 500;
+}
+.color-red{
+    color: red;
 }
 /*一排小图标*/
 .play-list .table tr .index-container .audio-icon {
