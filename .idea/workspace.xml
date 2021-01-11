@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4e340389-6999-467a-968b-a60ddbd6a697" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/iconfont.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +71,7 @@
       <workItem from="1610099074926" duration="883000" />
       <workItem from="1610191480857" duration="2425000" />
       <workItem from="1610280427066" duration="1190000" />
-      <workItem from="1610325545388" duration="15372000" />
+      <workItem from="1610325545388" duration="16112000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -165,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610347610777</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="tab切换">
+      <created>1610358553190</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1610358553190</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +189,7 @@
     <MESSAGE value="歌曲清单，未知还需要调整下" />
     <MESSAGE value="歌曲清单列表样式." />
     <MESSAGE value=" !important,添加tab下划线样式" />
-    <option name="LAST_COMMIT_MESSAGE" value=" !important,添加tab下划线样式" />
+    <MESSAGE value="tab切换" />
+    <option name="LAST_COMMIT_MESSAGE" value="tab切换" />
   </component>
 </project>

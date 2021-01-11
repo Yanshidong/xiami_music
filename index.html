@@ -83,9 +83,9 @@
             <div class="footer">
                 <div class="count">共{{musicPlayList.length}}首</div>
                 <div class="edit">编辑列表</div>
-                <div class="clear">清空</div>
+                <div class="clear" @click="clearAllPlayerList">清空</div>
             </div>
-            <div class="close iconfont icon-guanbi"></div>
+            <div class="close iconfont icon-guanbi" @click="showPlayListPanel"></div>
         </div>
     </div>
 
@@ -159,7 +159,7 @@
             </div>
             <div class="lyric-control iconfont icon-ci24" title="歌词"></div>
             <div class="play-list-control iconfont icon-bofangliebiao24" title="播放列表"
-                 @click="console.log(volume)"></div>
+                 @click="showPlayListPanel"></div>
             <!-- <div class="immersion-control iconfont icon-quanping" title="沉浸模式">x{{positionX}},y{{positionY}}</div> -->
         </div>
     </div>
@@ -381,6 +381,16 @@
             },
             selectTab(index) {
                 this.playListTabIndex=index
+            },
+            showPlayListPanel() {
+                if(this.playListVisible){
+                    this.playListVisible=false
+                }else{
+                    this.playListVisible=true
+                }
+            },
+            clearAllPlayerList() {
+                this.musicPlayList=[]
             }
         }
     })
