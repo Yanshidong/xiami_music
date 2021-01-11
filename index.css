@@ -804,7 +804,8 @@ a {
     display: flex;
     font-weight: 300;
     font-size: 16px;
-}.rjs-player .play-list-container .play-list .close{
+}
+.rjs-player .play-list-container .play-list .close{
      position: absolute;
      top: 30px;
      right: 30px;
@@ -812,13 +813,11 @@ a {
      cursor: pointer;
 }
 .rjs-player .play-list-container .play-list .tabs .tab{
-     position: relative;
-     margin-left: 40px;
-     padding: 7px 0;
-     white-space: nowrap;
-     cursor: pointer;
-    font-weight: 500;
-    /*border: 1px solid red;*/
+    position: relative;
+    margin-left: 40px;
+    padding: 7px 0;
+    white-space: nowrap;
+    cursor: pointer;
 }
 .rjs-player .play-list-container .play-list .tabs .tab:first-child{
     margin-left: 0;
@@ -835,6 +834,10 @@ a {
     -webkit-transition: right .25s,opacity .25s;
     -o-transition: right .25s,opacity .25s;
     transition: right .25s,opacity .25s;
+}
+.tabs .tab.active:after{
+    right: 0  !important;
+    opacity: 1  !important;
 }
 /*歌曲和歌词内容*/
 .rjs-player .play-list-container .play-list .table{
@@ -924,6 +927,7 @@ a {
     justify-content: flex-end;
     opacity: 0;
     height: 0;
+    cursor: pointer;
 }
 .play-list .table tr .duration-container .iconfont {
     display: inline-block;
