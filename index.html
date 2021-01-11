@@ -42,28 +42,32 @@
                         <tbody>
                             <tr class="music-list-tr" draggable="true" v-for="(item,i) in musicPlayList">
                                 <td>
-                                    <div class="index-container">
-                                        <span  class="em index">{{addPreZero(i)}}</span>
+                                    <div  v-if="music.id===i" class="index-container">
                                         <div class="audio-icon unselectable">
-                                            <div class="column paused" style="animation-delay: -1.2s;"></div>
-                                            <div class="column paused"></div>
-                                            <div class="column paused" style="animation-delay: -1.5s;"></div>
-                                            <div class="column paused" style="animation-delay: -0.9s;"></div>
-                                            <div class="column paused" style="animation-delay: -0.6s;"></div>
+                                            <div class="column " style="animation-delay: -1.2s;"></div>
+                                            <div class="column "></div>
+                                            <div class="column " style="animation-delay: -1.5s;"></div>
+                                            <div class="column " style="animation-delay: -0.9s;"></div>
+                                            <div class="column " style="animation-delay: -0.6s;"></div>
                                         </div>
-                                        <div  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px"></div>
+                                        <div v-if="playerStatus===0"  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;"></div>
+                                        <div v-else  class="iconfont icon-tingzhi-small operations" style="font-size: 22px;margin-left: -2px;"></div>
+                                    </div>
+                                    <div  v-else class="index-container">
+                                        <span  class="em index">{{addPreZero(i)}}</span>
+                                        <div  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;"></div>
                                     </div>
                                 </td>
                                 <td><a href="/song/wR7db09?spm=a2oj1.12028080.player.1.20156d99LputUC"
-                                       data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em">{{item.name}}</span></a>
+                                       data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em" :style="music.id===i?'color:red':''">{{item.name}}</span></a>
                                 </td>
                                 <td>
                                     <div class="singers COMPACT"><a
                                             href="/artist/fc1a46e?spm=a2oj1.12028080.player.2.20156d99LputUC"
-                                            data-spm-anchor-id="a2oj1.12028080.player.2">陈奕迅</a></div>
+                                            data-spm-anchor-id="a2oj1.12028080.player.2"  :style="music.id===i?'color:red':''">陈奕迅</a></div>
                                 </td>
                                 <td>
-                                    <div class="duration-container not-editing"><span class="duration">03:51</span>
+                                    <div class="duration-container not-editing"><span class="duration"  :style="music.id===i?'color:red':''">03:51</span>
                                         <div class="operations" style="font-size: 20px">
                                             <div class="iconfont icon-player_danqumanyou_" style="font-size: 20px"></div>
                                             <div class="iconfont icon-shoucang" style="font-size: 20px"></div>
@@ -165,6 +169,7 @@
         el: '#rjs-player',
         data: {
             music: {
+                id:1,
                 artist: "李昕融 / 樊桐舟 / 李凯稠",
                 date: "2012-12-12",
                 description: "",

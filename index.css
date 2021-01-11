@@ -969,12 +969,12 @@ a {
 }
 .music-list-tr:hover td>div>div.operations{
     /*background-color: rgb(250,250,250);*/
-    color: red;
+    /*color: red;*/
     /*display: block;*/
     opacity: 1;
     height: 50px;
 }
-.music-list-tr:hover td>div>span.duration,.music-list-tr:hover:hover td>div>span.index{
+.music-list-tr:hover td>div>span.duration,.music-list-tr:hover:hover td>div>span.index,.music-list-tr:hover:hover td>div>div.audio-icon{
     opacity: 0;
     height: 0;
     display: none;
@@ -984,11 +984,22 @@ a {
     height: 0;
     /*display: none;*/
 }
+div.play-list-container table > tbody > tr > td:nth-child(1){
+    padding: 0 9px;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
 .rjs-player .play-list .table tr .index-container {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
+    height: 18px;
+    width: 49px;
+    margin: 0 7px;
 }
 .table table tbody tr td .em {
     color: #4a4a4a;
@@ -996,7 +1007,7 @@ a {
 }
 /*一排小图标*/
 .play-list .table tr .index-container .audio-icon {
-    display: none;
+    /*display: none;*/
 }
 .audio-icon{
     width: 18px;
@@ -1007,6 +1018,48 @@ a {
     display: -ms-flexbox;
     display: flex;
     overflow: hidden;
+    /*margin:16px 0 16px 0;*/
+    color: red;
+    /*display: block;*/
+    opacity: 1;
+}
+.audio-icon .column:first-child {
+    margin-left: 0;
+}
+.music-list-tr .index-container .audio-icon .column .paused{
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+.music-list-tr .index-container .audio-icon .column{
+    width: 2px;
+    height: 100%;
+    margin-left: 2px;
+    background-color: #ff410f;
+    -webkit-animation: play .9s linear infinite alternate;
+    /*animation: play .9s linear infinite alternate;*/
+    animation-duration: 0.9s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: play;
+    transition-property: opacity, transform, -webkit-transform;
+    transition-duration: 1.5s, 0.25s, 0.25s;
+    transition-timing-function: ease, ease, ease;
+    transition-delay: 0s, 0s, 0s;
+}
+@keyframes play {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        -webkit-transform: translateY(75%);
+        transform: translateY(75%);
+    }
 }
 .play-list .table tr .index-container .play-btn {
     display: none;

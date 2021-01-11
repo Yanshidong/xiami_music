@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e340389-6999-467a-968b-a60ddbd6a697" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +70,9 @@
       <workItem from="1610067333234" duration="14306000" />
       <workItem from="1610090335618" duration="5827000" />
       <workItem from="1610099074926" duration="883000" />
-      <workItem from="1610191480857" duration="2051000" />
+      <workItem from="1610191480857" duration="2425000" />
+      <workItem from="1610280427066" duration="1190000" />
+      <workItem from="1610325545388" duration="7789000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -134,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610099804114</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="时长进度条关联时长和百分比.&#10;刚刷新时会闪动">
+      <created>1610193629284</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610193629284</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +158,7 @@
     <MESSAGE value="播放模式切换,额，怎么感觉我的icon颜色那么淡呢" />
     <MESSAGE value="加歌词面板." />
     <MESSAGE value="时长进度条" />
-    <option name="LAST_COMMIT_MESSAGE" value="时长进度条" />
+    <MESSAGE value="时长进度条关联时长和百分比.&#10;刚刷新时会闪动" />
+    <option name="LAST_COMMIT_MESSAGE" value="时长进度条关联时长和百分比.&#10;刚刷新时会闪动" />
   </component>
 </project>
