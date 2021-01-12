@@ -835,9 +835,30 @@ a {
     -o-transition: right .25s,opacity .25s;
     transition: right .25s,opacity .25s;
 }
+.rjs-player .play-list-container.invisible{
+    opacity: 0;
+    -webkit-transform: translateY(120px);
+    -ms-transform: translateY(120px);
+    transform: translateY(120px);
+    -webkit-transition-timing-function: cubic-bezier(1,-.25,1,1);
+    -o-transition-timing-function: cubic-bezier(1,-.25,1,1);
+    transition-timing-function: cubic-bezier(1,-.25,1,1);
+}
+.rjs-player .play-list-container.visible{
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition-timing-function: cubic-bezier(0,0,0,1.25);
+    -o-transition-timing-function: cubic-bezier(0,0,0,1.25);
+    transition-timing-function: cubic-bezier(0,0,0,1.25);
+}
 .tabs .tab.active:after{
     right: 0  !important;
     opacity: 1  !important;
+}
+.rjs-player .some_selected{
+    color: red !important;
 }
 /*歌曲和歌词内容*/
 .rjs-player .play-list-container .play-list .table{

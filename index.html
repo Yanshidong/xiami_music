@@ -22,7 +22,7 @@
 <div style="height: 800px;width:100%;background: black"></div>
 <div style="height: 800px;width:100%;background: #007aff"></div>
 <div class="rjs-player" id="rjs-player">
-    <div v-show="playListVisible" class="play-list-container visible">
+    <div :class="playListVisible?'play-list-container visible':'play-list-container invisible'">
         <div class="play-list">
             <div class="tabs">
                 <div :class="playListTabIndex===1?'tab active':'tab'" @click="selectTab(1)">正在播放</div>
@@ -158,7 +158,7 @@
                 <div title="顺序" :class="class_play_mode"></div>
             </div>
             <div class="lyric-control iconfont icon-ci24" title="歌词"></div>
-            <div class="play-list-control iconfont icon-bofangliebiao24" title="播放列表"
+            <div :class="playListVisible?'play-list-control iconfont icon-bofangliebiao24 some_selected':'play-list-control iconfont icon-bofangliebiao24'" title="播放列表"
                  @click="showPlayListPanel"></div>
             <!-- <div class="immersion-control iconfont icon-quanping" title="沉浸模式">x{{positionX}},y{{positionY}}</div> -->
         </div>

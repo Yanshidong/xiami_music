@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e340389-6999-467a-968b-a60ddbd6a697" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +72,9 @@
       <workItem from="1610099074926" duration="883000" />
       <workItem from="1610191480857" duration="2425000" />
       <workItem from="1610280427066" duration="1190000" />
-      <workItem from="1610325545388" duration="16112000" />
+      <workItem from="1610325545388" duration="16175000" />
+      <workItem from="1610371452513" duration="1244000" />
+      <workItem from="1610431592591" duration="1769000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -171,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610358553190</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="清空列表，点击音乐列表">
+      <created>1610359164403</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1610359164403</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +200,7 @@
     <MESSAGE value="歌曲清单列表样式." />
     <MESSAGE value=" !important,添加tab下划线样式" />
     <MESSAGE value="tab切换" />
-    <option name="LAST_COMMIT_MESSAGE" value="tab切换" />
+    <MESSAGE value="清空列表，点击音乐列表" />
+    <option name="LAST_COMMIT_MESSAGE" value="清空列表，点击音乐列表" />
   </component>
 </project>
