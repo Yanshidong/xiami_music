@@ -69,14 +69,14 @@
                                 <td>
                                     <div class="singers COMPACT"><a
                                             href="/artist/fc1a46e?spm=a2oj1.12028080.player.2.20156d99LputUC"
-                                            data-spm-anchor-id="a2oj1.12028080.player.2"  :style="music.id===i?'color:red':''">陈奕迅</a></div>
+                                            data-spm-anchor-id="a2oj1.12028080.player.2"  :style="music.id===i?'color:red':''">{{item.artist}}</a></div>
                                 </td>
                                 <td v-if="playMusicListEditable">
-                                    <div class="duration-container not-editing"><span class="duration" >03:51</span>
+                                    <div class="duration-container not-editing"><span class="duration" >{{time_second_len_beauty(item.length)}}</span>
                                     </div>
                                 </td>
                                 <td v-else>
-                                    <div class="duration-container not-editing"><span class="duration editable"  :style="music.id===i?'color:red':''">03:51</span>
+                                    <div class="duration-container not-editing"><span class="duration editable"  :style="music.id===i?'color:red':''">{{time_second_len_beauty(item.length)}}</span>
                                         <div :class="music.id!==i?'operations':'operations color-red'" style="font-size: 20px">
                                             <div class="iconfont icon-player_danqumanyou_" style="font-size: 20px"></div>
                                             <div class="iconfont icon-shoucang" style="font-size: 20px"></div>
@@ -89,7 +89,21 @@
                     </table>
                 </div>
             </div>
-            <div class="footer">
+            <div v-if="playMusicListEditable" class="footer footer-editing">
+                <div class="select-all">
+                    <div class="checkbox unselectable"></div>
+                </div>
+                <div class="select-count">已选择0首</div>
+                <div class="select add-to-collect-select">
+                    <div>
+                        <div class="add-to-collect">加到歌单</div>
+                    </div>
+                </div>
+                <div class="remove">移除</div>
+                <div class="division"></div>
+                <div class="cancel">取消</div>
+            </div>
+            <div v-else class="footer">
                 <div class="count">共{{musicPlayList.length}}首</div>
                 <div class="edit" @click="editPlayMusicList">编辑列表</div>
                 <div class="clear" @click="clearAllPlayerList">清空</div>
@@ -268,8 +282,8 @@
             }
         },
         created(){
-            this.musicPlayListBox=Array(30).fill({id:4,name:'倾城 (Live)'})
-            this.playListHistory=Array(5).fill({id:5,name:'一眼万年'})
+            this.musicPlayListBox=Array(30).fill({id:4,name:'倾城 (Live)',artist:'陈奕迅',length:76})
+            this.playListHistory=Array(5).fill({id:5,name:'一眼万年',artist:'S.H.E',length:98})
         },
         methods: {
             time_second_len_beauty(second_value) {

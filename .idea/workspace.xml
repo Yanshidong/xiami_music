@@ -75,7 +75,7 @@
       <workItem from="1610325545388" duration="16175000" />
       <workItem from="1610371452513" duration="1244000" />
       <workItem from="1610431592591" duration="3580000" />
-      <workItem from="1610500490147" duration="3064000" />
+      <workItem from="1610500490147" duration="5239000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -196,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610502824152</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="编辑按钮点击，可点击“checkbox”和list-icon不展示">
+      <created>1610504929234</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1610504929234</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +225,7 @@
     <MESSAGE value="清空列表，点击音乐列表" />
     <MESSAGE value="音乐列表show 动画" />
     <MESSAGE value="添加编辑列表的功能." />
-    <option name="LAST_COMMIT_MESSAGE" value="添加编辑列表的功能." />
+    <MESSAGE value="编辑按钮点击，可点击“checkbox”和list-icon不展示" />
+    <option name="LAST_COMMIT_MESSAGE" value="编辑按钮点击，可点击“checkbox”和list-icon不展示" />
   </component>
 </project>
