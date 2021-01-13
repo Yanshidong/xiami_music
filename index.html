@@ -62,11 +62,11 @@
                                     </div>
                                     <div  v-else class="index-container">
                                         <span  class="em index">{{addPreZero(i)}}</span>
-                                        <div  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;"></div>
+                                        <div  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;" @click="playMusicItem(item)"></div>
                                     </div>
                                 </td>
                                 <td><a href="/song/wR7db09?spm=a2oj1.12028080.player.1.20156d99LputUC"
-                                       data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em" :style="music.id===i&&!playMusicListEditable?'color:red':''">{{item.name}}</span></a>
+                                       data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em" :style="music.id===i&&!playMusicListEditable?'color:red':''">{{item.title}}</span></a>
                                 </td>
                                 <td>
                                     <div class="singers COMPACT"><a
@@ -348,8 +348,36 @@
             }
         },
         created(){
-            this.musicPlayListBox=Array(30).fill({id:4,name:'倾城 (Live)',artist:'陈奕迅',length:Math.floor(Math.random() * (600 - 100)) + 100})
-            this.playListHistory=Array(5).fill({id:5,name:'一眼万年',artist:'S.H.E',length:Math.floor(Math.random() * (600 - 100)) + 100})
+            this.musicPlayListBox=Array(30).fill({
+                id:1,
+                artist: "李昕融 / 樊桐舟 / 李凯稠",
+                date: "2012-12-12",
+                description: "",
+                ext: "",
+                group: "",
+                length: 137,
+                pic: "",
+                size: "",
+                src: "",
+                title: "你笑起来真好看",
+                star: true,
+                quality: 'hq',//sd
+            })
+            this.playListHistory=Array(5).fill({
+                id:2,
+                artist: "S.H.E",
+                date: "2006-07-12",
+                description: "",
+                ext: "",
+                group: "",
+                length: 100,
+                pic: "",
+                size: "",
+                src: "",
+                title: "一眼万年",
+                star: false,
+                quality: 'hq',//sd
+            })
         },
         methods: {
             time_second_len_beauty(second_value) {
@@ -545,6 +573,8 @@
             },
             playMusicItem(item) {
                 // this.music=item
+                console.log(item)
+                this.music=item
                 this.changePlayerStatus()
             }
         }

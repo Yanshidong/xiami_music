@@ -75,7 +75,7 @@
       <workItem from="1610371452513" duration="1244000" />
       <workItem from="1610431592591" duration="3580000" />
       <workItem from="1610500490147" duration="7725000" />
-      <workItem from="1610514612235" duration="12710000" />
+      <workItem from="1610514612235" duration="13689000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -217,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610527219534</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="同步播放状态.">
+      <created>1610530971041</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1610530971041</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +249,7 @@
     <MESSAGE value="编辑按钮点击，可点击“checkbox”和list-icon不展示" />
     <MESSAGE value="底部编辑时工具栏就绪，" />
     <MESSAGE value="歌曲列表编辑处理结束，接着同步列表里的播放按钮和底部播放按钮状态" />
-    <option name="LAST_COMMIT_MESSAGE" value="歌曲列表编辑处理结束，接着同步列表里的播放按钮和底部播放按钮状态" />
+    <MESSAGE value="同步播放状态." />
+    <option name="LAST_COMMIT_MESSAGE" value="同步播放状态." />
   </component>
 </project>
