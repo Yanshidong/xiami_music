@@ -1054,7 +1054,7 @@ div.play-list-container table > tbody > tr > td:nth-child(1){
 .audio-icon .column:first-child {
     margin-left: 0;
 }
-.music-list-tr .index-container .audio-icon .column .paused{
+.music-list-tr .index-container .audio-icon .column.paused{
     -webkit-animation-play-state: paused;
     animation-play-state: paused;
 }

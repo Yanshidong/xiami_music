@@ -51,14 +51,14 @@
                                     </div>
                                     <div  v-else-if="music.id===i" class="index-container">
                                         <div class="audio-icon unselectable">
-                                            <div class="column " style="animation-delay: -1.2s;"></div>
-                                            <div class="column "></div>
-                                            <div class="column " style="animation-delay: -1.5s;"></div>
-                                            <div class="column " style="animation-delay: -0.9s;"></div>
-                                            <div class="column " style="animation-delay: -0.6s;"></div>
+                                            <div :class="is_music_playing?'column':'column paused'" style="animation-delay: -1.2s;"></div>
+                                            <div :class="is_music_playing?'column':'column paused'"></div>
+                                            <div :class="is_music_playing?'column':'column paused'" style="animation-delay: -1.5s;"></div>
+                                            <div :class="is_music_playing?'column':'column paused'" style="animation-delay: -0.9s;"></div>
+                                            <div :class="is_music_playing?'column':'column paused'" style="animation-delay: -0.6s;"></div>
                                         </div>
-                                        <div v-if="playerStatus===0"  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;"></div>
-                                        <div v-else  class="iconfont icon-tingzhi-small operations color-red" style="font-size: 22px;margin-left: -2px;"></div>
+                                        <div v-if="playerStatus!=0"  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;" @click="playMusicItem(item)"></div>
+                                        <div v-else  class="iconfont icon-tingzhi-small operations color-red" style="font-size: 22px;margin-left: -2px;" @click="playMusicItem(item)"></div>
                                     </div>
                                     <div  v-else class="index-container">
                                         <span  class="em index">{{addPreZero(i)}}</span>
@@ -262,7 +262,7 @@
             volumeTmp: 0,
             handleStyleLeft: 0,
             volumeBarOffsetX: 0,
-            playerStatus: 'pause',//pause,start
+            playerStatus: 0,//pause,start
             roma_switch: false,//roma switch status
             playMode: 1,//播放模式,1:列表循环,2,单曲循环,3:随机播放,4:列表播放
             positionX: 0,
@@ -286,14 +286,24 @@
             },
             main_play_btn_class: function () {
                 switch (this.playerStatus) {
-                    case "pause":
+                    case 0:
                         return 'iconfont icon-zanting'
-                    case "play":
+                    case 1:
                         return 'iconfont icon-bofang'
                     default:
 
                 }
                 return 'iconfont icon-zanting'
+            },
+            is_music_playing: function () {
+                switch (this.playerStatus) {
+                    case 0:
+                        return true
+                    case 1:
+                        return false
+                    default:
+                        return true
+                }
             },
             class_volume_mode: function () {
                 switch (this.volume) {
@@ -347,11 +357,11 @@
             },
             changePlayerStatus() {
                 switch (this.playerStatus) {
-                    case "pause":
-                        this.playerStatus = 'play'
+                    case 0:
+                        this.playerStatus = 1
                         break
-                    case "play":
-                        this.playerStatus = 'pause'
+                    case 1:
+                        this.playerStatus = 0
                         break
                     default:
 
@@ -532,6 +542,10 @@
                 if(this.playListTabIndex===2)this.playListHistory=this.musicPlayList
 
                 this.playMUsicListSelected=[]
+            },
+            playMusicItem(item) {
+                // this.music=item
+                this.changePlayerStatus()
             }
         }
     })
