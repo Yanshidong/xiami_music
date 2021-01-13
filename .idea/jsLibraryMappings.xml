@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{font_2275175_f9wn8o8ovcu}" />
+    <file url="PROJECT" libraries="{firebase-app, firebase-firestore, font_2275175_f9wn8o8ovcu}" />
   </component>
 </project>

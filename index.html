@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./iconfont.css">
     <script src="vue.min.js" type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
     <title>Document</title>
     <style type="text/css">
         @import "index.css";
@@ -43,8 +45,8 @@
                             <tr class="music-list-tr" draggable="true" v-for="(item,i) in musicPlayList">
                                 <td>
                                     <div v-if="playMusicListEditable" class="index-container">
-                                        <div class="checkbox unselectable">
-
+                                        <div class="checkbox unselectable" @click="switchPlayMusicCheckBoxStatus(i)">
+                                            <div v-if="playMUsicListSelected.indexOf(i)>=0" class="iconfont icon-xuanzhong selected"></div>
                                         </div>
                                     </div>
                                     <div  v-else-if="music.id===i" class="index-container">
@@ -64,12 +66,12 @@
                                     </div>
                                 </td>
                                 <td><a href="/song/wR7db09?spm=a2oj1.12028080.player.1.20156d99LputUC"
-                                       data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em" :style="music.id===i?'color:red':''">{{item.name}}</span></a>
+                                       data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em" :style="music.id===i&&!playMusicListEditable?'color:red':''">{{item.name}}</span></a>
                                 </td>
                                 <td>
                                     <div class="singers COMPACT"><a
                                             href="/artist/fc1a46e?spm=a2oj1.12028080.player.2.20156d99LputUC"
-                                            data-spm-anchor-id="a2oj1.12028080.player.2"  :style="music.id===i?'color:red':''">{{item.artist}}</a></div>
+                                            data-spm-anchor-id="a2oj1.12028080.player.2"  :style="music.id===i&&!playMusicListEditable?'color:red':''">{{item.artist}}</a></div>
                                 </td>
                                 <td v-if="playMusicListEditable">
                                     <div class="duration-container not-editing"><span class="duration" >{{time_second_len_beauty(item.length)}}</span>
@@ -91,17 +93,19 @@
             </div>
             <div v-if="playMusicListEditable" class="footer footer-editing">
                 <div class="select-all">
-                    <div class="checkbox unselectable"></div>
+                    <div class="checkbox unselectable" @click="switchPlayMUsicListSelecteAll">
+                        <div v-if="playListIsSelectedAll" class="iconfont icon-xuanzhong selected color-red"></div>
+                    </div>
                 </div>
-                <div class="select-count">已选择0首</div>
+                <div class="select-count">已选择{{playMUsicListSelected.length}}首</div>
                 <div class="select add-to-collect-select">
                     <div>
                         <div class="add-to-collect">加到歌单</div>
                     </div>
                 </div>
-                <div class="remove">移除</div>
+                <div class="remove" @click="removeSelected">移除</div>
                 <div class="division"></div>
-                <div class="cancel">取消</div>
+                <div class="cancel" @click="cancelPlayMusicListEditable">取消</div>
             </div>
             <div v-else class="footer">
                 <div class="count">共{{musicPlayList.length}}首</div>
@@ -188,6 +192,54 @@
     </div>
 </div>
 <script type="text/javascript">
+    // const firebase = require("firebase");
+    // // Required for side-effects
+    // require("firebase/firestore")
+    function randomString(e) {
+        e = e || 32;
+        var t = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678",
+            a = t.length,
+            n = "";
+        for (i = 0; i < e; i++) n += t.charAt(Math.floor(Math.random() * a));
+        return n
+    }
+    // var firebaseConfig = {
+    //     apiKey: "AIzaSyBrMj6ibGNdpDdWCYm4DW6Zlc__ezpjD7U",
+    //     authDomain: "xiami-7831d.firebaseapp.com",
+    //     projectId: "xiami-7831d",
+    //     storageBucket: "xiami-7831d.appspot.com",
+    //     messagingSenderId: "1058535637951",
+    //     appId: "1:1058535637951:web:da831b3b1ef3de8185570a",
+    //     measurementId: "G-58T74XN778"
+    // };
+    // // Initialize Firebase
+    // firebase.initializeApp(firebaseConfig);
+    // var db = firebase.firestore();
+    // db.collection('music').add({
+    //     id:Date.parse(new Date())/1000,
+    //     artist: randomString(5),
+    //     date: "2012-12-12",
+    //     description: "",
+    //     ext: "",
+    //     group: randomString(3),
+    //     length: "",
+    //     pic: "",
+    //     size: "",
+    //     src: "",
+    //     title: randomString(6),
+    //     star: true,
+    //     quality: 'hq',//sd
+    // }).then(function(docRef) {
+    //         console.log("Document written with ID: ", docRef.id);
+    //     })
+    //     .catch(function(error) {
+    //         console.error("Error adding document: ", error);
+    //     });
+    // mref=db.collection('music').get().then(function (res){
+    //     console.log(res)
+    // });
+    // console.log(mref)
+    //以上非vue部分，属测试部分
     new Vue({
         el: '#rjs-player',
         data: {
@@ -224,6 +276,7 @@
             playListHistory:[],
             musicPlayListBox:[],
             playMusicListEditable:false,//编辑播放列表.
+            playMUsicListSelected:[]
 
         },
         computed: {
@@ -279,11 +332,14 @@
                     return 'right:100%'
                 }
                 return 'right:'+(100*(1-this.musicCurrentTime/this.musicDuration)).toString()+'%'
+            },
+            playListIsSelectedAll:function () {
+                return this.playMUsicListSelected.length>=this.musicPlayList.length && this.musicPlayList.length>0
             }
         },
         created(){
-            this.musicPlayListBox=Array(30).fill({id:4,name:'倾城 (Live)',artist:'陈奕迅',length:76})
-            this.playListHistory=Array(5).fill({id:5,name:'一眼万年',artist:'S.H.E',length:98})
+            this.musicPlayListBox=Array(30).fill({id:4,name:'倾城 (Live)',artist:'陈奕迅',length:Math.floor(Math.random() * (600 - 100)) + 100})
+            this.playListHistory=Array(5).fill({id:5,name:'一眼万年',artist:'S.H.E',length:Math.floor(Math.random() * (600 - 100)) + 100})
         },
         methods: {
             time_second_len_beauty(second_value) {
@@ -443,9 +499,65 @@
             },
             editPlayMusicList() {
                 this.playMusicListEditable=true
+            },
+            cancelPlayMusicListEditable() {
+                this.playMusicListEditable=false
+            },
+            switchPlayMusicCheckBoxStatus(i){
+                if((seIndex=this.playMUsicListSelected.indexOf(i))<0){
+                    this.playMUsicListSelected.push(i)
+                }else{
+                    this.playMUsicListSelected.splice(seIndex,1)
+                }
+
+            },
+            switchPlayMUsicListSelecteAll() {
+                if(this.playMUsicListSelected.length<this.musicPlayList.length){
+                    const tmp=[]
+                    for(i=0;i<this.musicPlayList.length;i++){
+                        tmp.push(i)
+                    }
+                    this.playMUsicListSelected=tmp
+                }else{
+                    this.playMUsicListSelected=[]
+                }
+            },
+            removeSelected() {
+                let that = this
+                this.musicPlayList=this.musicPlayList.filter(function (v,index){
+                    return that.playMUsicListSelected.indexOf(index) < 0
+                })
+                console.log(this.tabIndex)
+                if(this.playListTabIndex===1)this.musicPlayListBox=this.musicPlayList
+                if(this.playListTabIndex===2)this.playListHistory=this.musicPlayList
+
+                this.playMUsicListSelected=[]
             }
         }
     })
+</script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyBrMj6ibGNdpDdWCYm4DW6Zlc__ezpjD7U",
+        authDomain: "xiami-7831d.firebaseapp.com",
+        projectId: "xiami-7831d",
+        storageBucket: "xiami-7831d.appspot.com",
+        messagingSenderId: "1058535637951",
+        appId: "1:1058535637951:web:da831b3b1ef3de8185570a",
+        measurementId: "G-58T74XN778"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
 </script>
 </body>
 
