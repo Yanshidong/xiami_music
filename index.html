@@ -180,7 +180,7 @@
                 size: "",
                 src: "",
                 title: "你笑起来真好看",
-                star: false,
+                star: true,
                 quality: 'hq',//sd
             },
             volume: 100,
@@ -197,7 +197,9 @@
             musicDuration:136,
             musicCurrentTime:40,
             playListTabIndex:1,
-            playListVisible:false
+            playListVisible:false,
+            playListHistory:[],
+            musicPlayListBox:[]
 
         },
         computed: {
@@ -256,7 +258,8 @@
             }
         },
         created(){
-            this.musicPlayList=Array(30).fill({id:4,name:'倾城 (Live)'})
+            this.musicPlayListBox=Array(30).fill({id:4,name:'倾城 (Live)'})
+            this.playListHistory=Array(5).fill({id:5,name:'一眼万年'})
         },
         methods: {
             time_second_len_beauty(second_value) {
@@ -381,8 +384,28 @@
             },
             selectTab(index) {
                 this.playListTabIndex=index
+                switch (this.playListTabIndex){
+                    case 1:
+                        this.musicPlayList = this.musicPlayListBox
+                        break
+                    case 2:
+                        this.musicPlayList = this.playListHistory
+                        break
+                }
+            },
+            clearTab(index) {
+                switch (this.playListTabIndex){
+                    case 1:
+                        this.musicPlayListBox=[]
+                        break
+                    case 2:
+                        this.playListHistory=[]
+                        break
+                }
             },
             showPlayListPanel() {
+                //this.playListHistory
+                this.selectTab(this.playListTabIndex)
                 if(this.playListVisible){
                     this.playListVisible=false
                 }else{
@@ -391,6 +414,8 @@
             },
             clearAllPlayerList() {
                 this.musicPlayList=[]
+                this.clearTab(this.playListTabIndex)
+
             }
         }
     })
