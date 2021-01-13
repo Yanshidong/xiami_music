@@ -42,7 +42,12 @@
                         <tbody>
                             <tr class="music-list-tr" draggable="true" v-for="(item,i) in musicPlayList">
                                 <td>
-                                    <div  v-if="music.id===i" class="index-container">
+                                    <div v-if="playMusicListEditable" class="index-container">
+                                        <div class="checkbox unselectable">
+
+                                        </div>
+                                    </div>
+                                    <div  v-else-if="music.id===i" class="index-container">
                                         <div class="audio-icon unselectable">
                                             <div class="column " style="animation-delay: -1.2s;"></div>
                                             <div class="column "></div>
@@ -66,8 +71,12 @@
                                             href="/artist/fc1a46e?spm=a2oj1.12028080.player.2.20156d99LputUC"
                                             data-spm-anchor-id="a2oj1.12028080.player.2"  :style="music.id===i?'color:red':''">陈奕迅</a></div>
                                 </td>
-                                <td>
-                                    <div class="duration-container not-editing"><span class="duration"  :style="music.id===i?'color:red':''">03:51</span>
+                                <td v-if="playMusicListEditable">
+                                    <div class="duration-container not-editing"><span class="duration" >03:51</span>
+                                    </div>
+                                </td>
+                                <td v-else>
+                                    <div class="duration-container not-editing"><span class="duration editable"  :style="music.id===i?'color:red':''">03:51</span>
                                         <div :class="music.id!==i?'operations':'operations color-red'" style="font-size: 20px">
                                             <div class="iconfont icon-player_danqumanyou_" style="font-size: 20px"></div>
                                             <div class="iconfont icon-shoucang" style="font-size: 20px"></div>
@@ -82,7 +91,7 @@
             </div>
             <div class="footer">
                 <div class="count">共{{musicPlayList.length}}首</div>
-                <div class="edit">编辑列表</div>
+                <div class="edit" @click="editPlayMusicList">编辑列表</div>
                 <div class="clear" @click="clearAllPlayerList">清空</div>
             </div>
             <div class="close iconfont icon-guanbi" @click="showPlayListPanel"></div>
@@ -199,7 +208,8 @@
             playListTabIndex:1,
             playListVisible:false,
             playListHistory:[],
-            musicPlayListBox:[]
+            musicPlayListBox:[],
+            playMusicListEditable:false,//编辑播放列表.
 
         },
         computed: {
@@ -416,6 +426,9 @@
                 this.musicPlayList=[]
                 this.clearTab(this.playListTabIndex)
 
+            },
+            editPlayMusicList() {
+                this.playMusicListEditable=true
             }
         }
     })
