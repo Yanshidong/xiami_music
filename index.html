@@ -157,7 +157,7 @@
                 </div>
             </div>
             <div :class="music.star?'favorite iconfont icon-xihuan':'favorite iconfont icon-shoucang'"
-                 title="收藏" @click="switchFavorite" :style="music.star?'color:red':''"></div>
+                 title="收藏" @click="switchFavorite(music)" :style="music.star?'color:red':''"></div>
             <div :class="roma_switch?'roma iconfont icon-player_dakaimanyou_':'roma iconfont icon-player_danqumanyou_'"
                  title="漫游" @click="switchRoma" :style="roma_switch?'color:red':''"></div>
             <div class="more iconfont icon-gengduo" title="更多"></div>
@@ -444,15 +444,15 @@
             },
             switchFavorite(item) {
                 // 切换 收藏状态
+                //Todo 这里应当调用接口切换当前用户的关于当前接口的收藏状态
                 if(item !== undefined) {
                     item['star']=!item['star']
-                    return
                 }
-                if (this.music.star) {
-                    this.music.star = false
-                } else {
-                    this.music.star = true
-                }
+                // if (this.music.star) {
+                //     this.music.star = false
+                // } else {
+                //     this.music.star = true
+                // }
             },
             switchRoma() {
                 // 切换漫游
