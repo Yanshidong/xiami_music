@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e340389-6999-467a-968b-a60ddbd6a697" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +78,7 @@
       <workItem from="1610514612235" duration="13845000" />
       <workItem from="1610540552864" duration="843000" />
       <workItem from="1610584912790" duration="2000" />
-      <workItem from="1610603475426" duration="5815000" />
+      <workItem from="1610603475426" duration="7315000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -254,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610608913402</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Todo">
+      <created>1610609343737</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1610609343737</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +292,7 @@
     <MESSAGE value="准备添加个id属性" />
     <MESSAGE value="添加模拟数据id，添加点击列表播放效果" />
     <MESSAGE value="列表收藏." />
-    <option name="LAST_COMMIT_MESSAGE" value="列表收藏." />
+    <MESSAGE value="Todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Todo" />
   </component>
 </project>

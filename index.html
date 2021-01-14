@@ -348,6 +348,7 @@
             }
         },
         created(){
+            //Todo 应当获取用户的播放列表和播放历史列表，另外还应当初始化用户最后播放的歌曲到 this.music
             this.musicPlayListBox=[]
             // this.musicPlayListBox
             for(i=0;i<30;i++){
@@ -392,6 +393,7 @@
                 return this.addPreZero(Math.floor(second_value/60))+':'+this.addPreZero((second_value%60))
             },
             changePlayerStatus() {
+                //Todo 调用 音频对象方法，切换音频播放状态
                 switch (this.playerStatus) {
                     case 0:
                         this.playerStatus = 1
@@ -412,6 +414,7 @@
                 var el2 = e.target;
                 if (el1 == el2) {
                     this.volume = (e.offsetX / 80) * 100;
+                    //Todo 调用 音频对象方法， 调整音量
                     this.$refs.handle.style.left = e.offsetX + 'px'
                 }
             },
@@ -436,6 +439,7 @@
                     left = left < 0 ? 0 : left
                     odiv.style.left = left + 'px'
                     this.volume = left / 80 * 100;
+                    //Todo 调用 音频对象方法， 调整音量
                 };
                 document.onmouseup = (e) => {
                     document.onmousemove = null
@@ -463,7 +467,7 @@
                 }
             },
             switchVolumeMute() {
-                // 切换静音状态
+                //Todo 切换静音状态，并发送请求保存用户音量状态
                 if (this.volume === 0) {
                     this.volume = this.volumeTmp
                     this.$refs.handle.style.left = this.handleStyleLeft
@@ -475,6 +479,7 @@
                 }
             },
             switchPlayMode() {
+                //Todo 切换播放模式，并发送请求保存用户状态,
                 if (this.playMode < 3) {
                     this.playMode = this.playMode + 1
                 } else {
@@ -527,6 +532,7 @@
                 }
             },
             clearTab(index) {
+                //Todo 调用接口清除对应Tab列表数据
                 switch (this.playListTabIndex){
                     case 1:
                         this.musicPlayListBox=[]
@@ -576,6 +582,7 @@
                 }
             },
             removeSelected() {
+                //Todo 根据 Tab类型发送请求删除对应的列表数据
                 let that = this
                 this.musicPlayList=this.musicPlayList.filter(function (v,index){
                     return that.playMUsicListSelected.indexOf(index) < 0
@@ -587,22 +594,14 @@
                 this.playMUsicListSelected=[]
             },
             playMusicItem(item) {
-                // this.music=item
-                // console.log('------------------')
-                // console.log(item['id'])
-                // console.log(this.music['id'])
-                // console.log('---------------------------------------------------')
+                //Todo 发送请求保存当前播放的音乐
                 const tmp = Object.assign({},this.music)
                 this.music=item
                 tmp['id']===this.music['id']?this.changePlayerStatus():this.changePlayerStatusPlay()
                 // console.log(this.playerStatus)
             },
             playMusicItemPlay(item) {
-                // this.music=item
-                // console.log('------------------')
-                // console.log(item['id'])
-                // console.log(this.music['id'])
-                // console.log('---------------------------------------------------')
+                //Todo 发送请求保存当前播放的音乐
                 const tmp = Object.assign({},this.music)
                 this.music=item
                 this.changePlayerStatusPlay()
