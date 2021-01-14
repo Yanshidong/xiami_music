@@ -65,7 +65,7 @@
                                         <div  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;" @click="playMusicItem(item)"></div>
                                     </div>
                                 </td>
-                                <td><a href="/song/wR7db09?spm=a2oj1.12028080.player.1.20156d99LputUC"
+                                <td><a href="javascript:void(0);" @click="playMusicItemPlay(item)"
                                        data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em" :style="music.id===item.id&&!playMusicListEditable?'color:red':''">{{item.title}}</span></a>
                                 </td>
                                 <td>
@@ -348,38 +348,44 @@
             }
         },
         created(){
-            this.musicPlayListBox=Array(30).fill({
-                id:1,
-                artist: "李昕融 / 樊桐舟 / 李凯稠",
-                date: "2012-12-12",
-                description: "",
-                ext: "",
-                group: "",
-                length: 137,
-                pic: "",
-                size: "",
-                src: "",
-                title: "你笑起来真好看",
-                star: true,
-                quality: 'hq',//sd
-            })
-            let id_tmp=1
-            this.musicPlayListBox=this.musicPlayListBox.map(function (v){v['id']=id_tmp++;return v;})
-            this.playListHistory=Array(5).fill({
-                id:2,
-                artist: "S.H.E",
-                date: "2006-07-12",
-                description: "",
-                ext: "",
-                group: "",
-                length: 100,
-                pic: "",
-                size: "",
-                src: "",
-                title: "一眼万年",
-                star: false,
-                quality: 'hq',//sd
-            })
+            this.musicPlayListBox=[]
+            // this.musicPlayListBox
+            for(i=0;i<30;i++){
+                this.musicPlayListBox.push({
+                    id:i,
+                    artist: "李昕融 / 樊桐舟 / 李凯稠",
+                    date: "2012-12-12",
+                    description: "",
+                    ext: "",
+                    group: "",
+                    length: 137,
+                    pic: "",
+                    size: "",
+                    src: "",
+                    title: "你笑起来真好看",
+                    star: true,
+                    quality: 'hq',//sd
+                })
+            }
+            console.log(this.musicPlayListBox)
+            this.playListHistory=[]
+            for(i=0;i<30;i++){
+                this.playListHistory.push({
+                    id:i+100,
+                    artist: "S.H.E",
+                    date: "2016-05-06",
+                    description: "",
+                    ext: "",
+                    group: "",
+                    length: 196,
+                    pic: "",
+                    size: "",
+                    src: "",
+                    title: "一眼万年",
+                    star: true,
+                    quality: 'hq',//sd
+                })
+            }
         },
         methods: {
             time_second_len_beauty(second_value) {
@@ -396,6 +402,9 @@
                     default:
 
                 }
+            },
+            changePlayerStatusPlay() {
+                this.playerStatus = 0
             },
             changeVolume(e) {
                 // this.volumeBarOffsetX=this.volumeBarOffsetX+e.offsetX
@@ -575,9 +584,25 @@
             },
             playMusicItem(item) {
                 // this.music=item
-                console.log(item)
+                // console.log('------------------')
+                // console.log(item['id'])
+                // console.log(this.music['id'])
+                // console.log('---------------------------------------------------')
+                const tmp = Object.assign({},this.music)
                 this.music=item
-                this.changePlayerStatus()
+                tmp['id']===this.music['id']?this.changePlayerStatus():this.changePlayerStatusPlay()
+                // console.log(this.playerStatus)
+            },
+            playMusicItemPlay(item) {
+                // this.music=item
+                // console.log('------------------')
+                // console.log(item['id'])
+                // console.log(this.music['id'])
+                // console.log('---------------------------------------------------')
+                const tmp = Object.assign({},this.music)
+                this.music=item
+                this.changePlayerStatusPlay()
+                // console.log(this.playerStatus)
             }
         }
     })

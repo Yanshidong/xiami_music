@@ -78,6 +78,7 @@
       <workItem from="1610514612235" duration="13845000" />
       <workItem from="1610540552864" duration="843000" />
       <workItem from="1610584912790" duration="2000" />
+      <workItem from="1610603475426" duration="3396000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -233,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610532043172</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="准备添加个id属性">
+      <created>1610603772159</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1610603772160</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +268,7 @@
     <MESSAGE value="歌曲列表编辑处理结束，接着同步列表里的播放按钮和底部播放按钮状态" />
     <MESSAGE value="同步播放状态." />
     <MESSAGE value="id，缺" />
-    <option name="LAST_COMMIT_MESSAGE" value="id，缺" />
+    <MESSAGE value="准备添加个id属性" />
+    <option name="LAST_COMMIT_MESSAGE" value="准备添加个id属性" />
   </component>
 </project>
