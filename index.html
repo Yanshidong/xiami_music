@@ -130,7 +130,7 @@
             <a href="http://localhost/1.jpg" class="cover-link">
                 <div class="transitive-image">
                     <img class="active"
-                         src="https://pic.xiami.net/images/album/img73/36499573/8365086691436508670.jpg?x-oss-process=image/resize,limit_0,m_fill,s_144/quality,q_80/format,jpg"
+                         :src="music.pic"
                          alt="">
                     <img src="http://localhost/1.jpg" alt="">
                 </div>
@@ -354,15 +354,15 @@
             for(i=0;i<30;i++){
                 this.musicPlayListBox.push({
                     id:i,
-                    artist: "李昕融 / 樊桐舟 / 李凯稠",
+                    artist: "李昕融 / 樊桐舟",
                     date: "2012-12-12",
                     description: "",
-                    ext: "",
-                    group: "",
-                    length: 137,
-                    pic: "",
+                    ext: "mp3",
+                    group: "某专辑",
+                    length: 104,
+                    pic: "http://localhost/1.jpg",
                     size: "",
-                    src: "",
+                    src: "http://localhost/1.mp3",
                     title: "你笑起来真好看",
                     star: false,
                     quality: 'hq',//sd
@@ -375,14 +375,14 @@
                 this.playListHistory.push({
                     id:i+100,
                     artist: "S.H.E",
-                    date: "2016-05-06",
+                    date: "2012-12-12",
                     description: "",
-                    ext: "",
-                    group: "",
-                    length: 196,
-                    pic: "",
+                    ext: "mp3",
+                    group: "某专辑",
+                    length: 104,
+                    pic: "http://localhost/1.jpg",
                     size: "",
-                    src: "",
+                    src: "http://localhost/1.mp3",
                     title: "一眼万年",
                     star: false,
                     quality: 'hq',//sd

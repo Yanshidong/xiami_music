@@ -78,7 +78,7 @@
       <workItem from="1610514612235" duration="13845000" />
       <workItem from="1610540552864" duration="843000" />
       <workItem from="1610584912790" duration="2000" />
-      <workItem from="1610603475426" duration="7315000" />
+      <workItem from="1610603475426" duration="8041000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -262,7 +262,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610609343737</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="添加一些Todo，这些Todo都要处理,">
+      <created>1610610828921</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1610610828921</updated>
+    </task>
+    <task id="LOCAL-00028" summary="添加一些Todo，这些Todo都要处理,">
+      <created>1610611042605</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1610611042605</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +307,7 @@
     <MESSAGE value="添加模拟数据id，添加点击列表播放效果" />
     <MESSAGE value="列表收藏." />
     <MESSAGE value="Todo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Todo" />
+    <MESSAGE value="添加一些Todo，这些Todo都要处理," />
+    <option name="LAST_COMMIT_MESSAGE" value="添加一些Todo，这些Todo都要处理," />
   </component>
 </project>
