@@ -49,7 +49,7 @@
                                             <div v-if="playMUsicListSelected.indexOf(i)>=0" class="iconfont icon-xuanzhong selected"></div>
                                         </div>
                                     </div>
-                                    <div  v-else-if="music.id===i" class="index-container">
+                                    <div  v-else-if="music.id===item.id" class="index-container">
                                         <div class="audio-icon unselectable">
                                             <div :class="is_music_playing?'column':'column paused'" style="animation-delay: -1.2s;"></div>
                                             <div :class="is_music_playing?'column':'column paused'"></div>
@@ -66,20 +66,20 @@
                                     </div>
                                 </td>
                                 <td><a href="/song/wR7db09?spm=a2oj1.12028080.player.1.20156d99LputUC"
-                                       data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em" :style="music.id===i&&!playMusicListEditable?'color:red':''">{{item.title}}</span></a>
+                                       data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em" :style="music.id===item.id&&!playMusicListEditable?'color:red':''">{{item.title}}</span></a>
                                 </td>
                                 <td>
                                     <div class="singers COMPACT"><a
                                             href="/artist/fc1a46e?spm=a2oj1.12028080.player.2.20156d99LputUC"
-                                            data-spm-anchor-id="a2oj1.12028080.player.2"  :style="music.id===i&&!playMusicListEditable?'color:red':''">{{item.artist}}</a></div>
+                                            data-spm-anchor-id="a2oj1.12028080.player.2"  :style="music.id===item.id&&!playMusicListEditable?'color:red':''">{{item.artist}}</a></div>
                                 </td>
                                 <td v-if="playMusicListEditable">
                                     <div class="duration-container not-editing"><span class="duration" >{{time_second_len_beauty(item.length)}}</span>
                                     </div>
                                 </td>
                                 <td v-else>
-                                    <div class="duration-container not-editing"><span class="duration editable"  :style="music.id===i?'color:red':''">{{time_second_len_beauty(item.length)}}</span>
-                                        <div :class="music.id!==i?'operations':'operations color-red'" style="font-size: 20px">
+                                    <div class="duration-container not-editing"><span class="duration editable"  :style="music.id===item.id?'color:red':''">{{time_second_len_beauty(item.length)}}</span>
+                                        <div :class="music.id!==item.id?'operations':'operations color-red'" style="font-size: 20px">
                                             <div class="iconfont icon-player_danqumanyou_" style="font-size: 20px"></div>
                                             <div class="iconfont icon-shoucang" style="font-size: 20px"></div>
                                             <div class="iconfont icon-lajitong" style="font-size: 20px"></div>
@@ -363,6 +363,8 @@
                 star: true,
                 quality: 'hq',//sd
             })
+            let id_tmp=1
+            this.musicPlayListBox=this.musicPlayListBox.map(function (v){v['id']=id_tmp++;return v;})
             this.playListHistory=Array(5).fill({
                 id:2,
                 artist: "S.H.E",
