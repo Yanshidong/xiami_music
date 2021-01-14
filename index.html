@@ -81,8 +81,8 @@
                                     <div class="duration-container not-editing"><span class="duration editable"  :style="music.id===item.id?'color:red':''">{{time_second_len_beauty(item.length)}}</span>
                                         <div :class="music.id!==item.id?'operations':'operations color-red'" style="font-size: 20px">
                                             <div class="iconfont icon-player_danqumanyou_" style="font-size: 20px"></div>
-                                            <div class="iconfont icon-shoucang" style="font-size: 20px"></div>
-                                            <div class="iconfont icon-lajitong" style="font-size: 20px"></div>
+                                            <div :class="item.star?'favorite iconfont icon-xihuan color-red':'favorite iconfont icon-shoucang'" style="font-size: 20px" @click="switchFavorite(item)"></div>
+                                            <div class="iconfont icon-lajitong" style="font-size: 20px" @click="switchPlayMusicCheckBoxStatus(i);removeSelected()"></div>
                                         </div>
                                     </div>
                                 </td>
@@ -363,7 +363,7 @@
                     size: "",
                     src: "",
                     title: "你笑起来真好看",
-                    star: true,
+                    star: false,
                     quality: 'hq',//sd
                 })
             }
@@ -382,7 +382,7 @@
                     size: "",
                     src: "",
                     title: "一眼万年",
-                    star: true,
+                    star: false,
                     quality: 'hq',//sd
                 })
             }
@@ -442,8 +442,12 @@
                     document.onmouseup = null
                 }
             },
-            switchFavorite() {
+            switchFavorite(item) {
                 // 切换 收藏状态
+                if(item !== undefined) {
+                    item['star']=!item['star']
+                    return
+                }
                 if (this.music.star) {
                     this.music.star = false
                 } else {
@@ -576,7 +580,7 @@
                 this.musicPlayList=this.musicPlayList.filter(function (v,index){
                     return that.playMUsicListSelected.indexOf(index) < 0
                 })
-                console.log(this.tabIndex)
+                // console.log(this.tabIndex)
                 if(this.playListTabIndex===1)this.musicPlayListBox=this.musicPlayList
                 if(this.playListTabIndex===2)this.playListHistory=this.musicPlayList
 
