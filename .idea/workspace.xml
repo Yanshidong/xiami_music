@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e340389-6999-467a-968b-a60ddbd6a697" name="Default Changelist" comment="">
+    <list default="true" id="4e340389-6999-467a-968b-a60ddbd6a697" name="Default Changelist" comment="初始化时处于暂停状态">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +79,8 @@
       <workItem from="1610514612235" duration="13845000" />
       <workItem from="1610540552864" duration="843000" />
       <workItem from="1610584912790" duration="2000" />
-      <workItem from="1610603475426" duration="8041000" />
+      <workItem from="1610603475426" duration="13291000" />
+      <workItem from="1610695821422" duration="3182000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -276,15 +278,27 @@
       <option name="project" value="LOCAL" />
       <updated>1610611042605</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="使用当前的 歌曲封面">
+      <created>1610611583225</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1610611583225</updated>
+    </task>
+    <task id="LOCAL-00030" summary="初始化时处于暂停状态">
+      <created>1610611697232</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1610611697232</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="很强的队友，靠谱" />
-    <MESSAGE value="漫游开关icon" />
     <MESSAGE value="设置left之前" />
     <MESSAGE value="音量条貌似闪现了个bug，没有复现." />
     <MESSAGE value="播放模式切换,额，怎么感觉我的icon颜色那么淡呢" />
@@ -308,6 +322,8 @@
     <MESSAGE value="列表收藏." />
     <MESSAGE value="Todo" />
     <MESSAGE value="添加一些Todo，这些Todo都要处理," />
-    <option name="LAST_COMMIT_MESSAGE" value="添加一些Todo，这些Todo都要处理," />
+    <MESSAGE value="使用当前的 歌曲封面" />
+    <MESSAGE value="初始化时处于暂停状态" />
+    <option name="LAST_COMMIT_MESSAGE" value="初始化时处于暂停状态" />
   </component>
 </project>

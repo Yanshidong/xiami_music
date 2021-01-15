@@ -24,6 +24,7 @@
 <div style="height: 800px;width:100%;background: black"></div>
 <div style="height: 800px;width:100%;background: #007aff"></div>
 <div class="rjs-player" id="rjs-player">
+    <audio src="http://localhost/1.mp3" id="rjs-player-audio"></audio>
     <div :class="playListVisible?'play-list-container visible':'play-list-container invisible'">
         <div class="play-list">
             <div class="tabs">
@@ -276,7 +277,8 @@
             playListHistory:[],
             musicPlayListBox:[],
             playMusicListEditable:false,//编辑播放列表.
-            playMUsicListSelected:[]
+            playMUsicListSelected:[],
+            musicAudioObj:undefined,
 
         },
         computed: {
@@ -388,8 +390,30 @@
                     quality: 'hq',//sd
                 })
             }
+            this.initAudioObj()
+            console.log(this.musicAudioObj)
         },
         methods: {
+            initAudioObj(src) {
+                this.musicAudioObj = new Audio(src===undefined?this.music.src:src)
+                this.musicAudioObj.load()
+                let that = this
+                this.musicAudioObj.oncanplay = function () {
+                    console.log('-------*************************----------')
+                    // console.log(that.musicAudioObj.currentSrc)
+                    // console.log(that.musicAudioObj.readyState)
+                    // console.log(that.musicAudioObj.networkState)
+                    // console.log(that.musicAudioObj.duration)
+                    // console.log(that.musicAudioObj.currentTime)
+                    that.musicDuration=Math.floor(that.musicAudioObj.duration)
+                    that.musicCurrentTime=Math.floor(that.musicAudioObj.currentTime)
+                    console.log(that.musicDuration)
+                }
+
+
+                // this.musicDuration=Math.floor(this.musicAudioObj.duration)
+                // this.musicCurrentTime=Math.floor(this.musicAudioObj.currentTime)
+            },
             time_second_len_beauty(second_value) {
                 return this.addPreZero(Math.floor(second_value/60))+':'+this.addPreZero((second_value%60))
             },

@@ -1194,3 +1194,10 @@ div.checkbox{
     height: 14px;
     background-color: #e0e0e0;
 }
+/*.rjs-player audio:not([controls]) {*/
+/*    display: none !important;*/
+/*}*/
+/*.rjs-player audio {*/
+/*    width: 300px;*/
+/*    height: 54px;*/
+/*}*/
