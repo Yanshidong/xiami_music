@@ -80,7 +80,7 @@
       <workItem from="1610584912790" duration="2000" />
       <workItem from="1610603475426" duration="13291000" />
       <workItem from="1610695821422" duration="4937000" />
-      <workItem from="1610789674429" duration="869000" />
+      <workItem from="1610789674429" duration="2202000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -306,14 +306,20 @@
       <option name="project" value="LOCAL" />
       <updated>1610789747232</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="音量调整">
+      <created>1610790695771</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1610790695771</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="播放模式切换,额，怎么感觉我的icon颜色那么淡呢" />
     <MESSAGE value="加歌词面板." />
     <MESSAGE value="时长进度条" />
     <MESSAGE value="时长进度条关联时长和百分比.&#10;刚刷新时会闪动" />
@@ -338,6 +344,7 @@
     <MESSAGE value="初始化时处于暂停状态" />
     <MESSAGE value="加载音乐时初始化音乐时长等数据." />
     <MESSAGE value="可播放可暂停." />
-    <option name="LAST_COMMIT_MESSAGE" value="可播放可暂停." />
+    <MESSAGE value="音量调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="音量调整" />
   </component>
 </project>

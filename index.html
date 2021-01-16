@@ -395,7 +395,18 @@
             console.log(this.musicAudioObj)
         },
         methods: {
+            is_music_ready() {
+                if(this.musicAudioObj!==undefined&&this.musicAudioObj.readyState===4){
+                    return true
+                }
+                return false
+            },
+            music_paulse_destroy(){
+                if(!this.musicAudioObj.paused)this.musicAudioObj.pause()
+                this.musicAudioObj=null
+            },
             initAudioObj(src) {
+                if(this.is_music_ready())this.music_paulse_destroy()
                 this.musicAudioObj = new Audio(src===undefined?this.music.src:src)
                 this.musicAudioObj.load()
                 let that = this
@@ -658,6 +669,7 @@
                 //Todo 发送请求保存当前播放的音乐
                 const tmp = Object.assign({},this.music)
                 this.music=item
+                this.initAudioObj()
                 this.changePlayerStatusPlay()
                 // console.log(this.playerStatus)
             }
