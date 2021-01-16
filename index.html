@@ -311,7 +311,8 @@
                 switch (this.volume) {
                     case 0:
                         return 'volume-mode iconfont icon-jingyin'
-                    case 80:
+                    case 100:
+                        // console.log('最大音量')
                         return 'volume-mode iconfont icon-shengyin'
                     default:
                         return 'volume-mode iconfont icon-shengyin'
@@ -407,6 +408,7 @@
                     // console.log(that.musicAudioObj.currentTime)
                     that.musicDuration=Math.floor(that.musicAudioObj.duration)
                     that.musicCurrentTime=Math.floor(that.musicAudioObj.currentTime)
+                    that.changeVolumeValue(that.volume)
                     console.log(that.musicDuration)
                 }
                 this.musicAudioObj.addEventListener('ended', this.lisen_music_ended, false);
@@ -426,6 +428,10 @@
                 console.log('music.ended')
                 this.musicCurrentTime=0
                 this.playerStatus=1
+            },
+            changeVolumeValue(vp) {
+                this.volume=vp
+                this.musicAudioObj.volume=vp/100
             },
             time_second_len_beauty(second_value) {
                 return this.addPreZero(Math.floor(second_value/60))+':'+this.addPreZero((second_value%60))
@@ -456,8 +462,10 @@
                 var el1 = e.currentTarget;
                 var el2 = e.target;
                 if (el1 == el2) {
-                    this.volume = (e.offsetX / 80) * 100;
-                    //Todo 调用 音频对象方法， 调整音量
+                    // this.volume = (e.offsetX / 80) * 100;
+                    this.changeVolumeValue((e.offsetX / 80) * 100);
+
+                    // 调用 音频对象方法， 调整音量
                     this.$refs.handle.style.left = e.offsetX + 'px'
                 }
             },
@@ -481,8 +489,9 @@
                     left = left > 80 ? 80 : left
                     left = left < 0 ? 0 : left
                     odiv.style.left = left + 'px'
-                    this.volume = left / 80 * 100;
-                    //Todo 调用 音频对象方法， 调整音量
+                    this.changeVolumeValue(left / 80 * 100);
+                    // this.volume = left / 80 * 100;
+                    // 调用 音频对象方法， 调整音量
                 };
                 document.onmouseup = (e) => {
                     document.onmousemove = null
@@ -510,15 +519,17 @@
                 }
             },
             switchVolumeMute() {
-                //Todo 切换静音状态，并发送请求保存用户音量状态
+                // 切换静音状态，并发送请求保存用户音量状态
                 if (this.volume === 0) {
-                    this.volume = this.volumeTmp
+                    // this.volume = this.volumeTmp
+                    this.changeVolumeValue(this.volumeTmp)
                     this.$refs.handle.style.left = this.handleStyleLeft
                 } else {
                     this.volumeTmp = this.volume
                     this.handleStyleLeft = this.$refs.handle.style.left
                     this.$refs.handle.style.left = 0
-                    this.volume = 0
+                    // this.volume = 0
+                    this.changeVolumeValue(0)
                 }
             },
             switchPlayMode() {
