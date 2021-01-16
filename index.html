@@ -409,10 +409,23 @@
                     that.musicCurrentTime=Math.floor(that.musicAudioObj.currentTime)
                     console.log(that.musicDuration)
                 }
+                this.musicAudioObj.addEventListener('ended', this.lisen_music_ended, false);
+                this.musicAudioObj.addEventListener('timeupdate', this.lisen_music_play_update_time, false);
 
 
                 // this.musicDuration=Math.floor(this.musicAudioObj.duration)
                 // this.musicCurrentTime=Math.floor(this.musicAudioObj.currentTime)
+            },
+            lisen_music_play_update_time() {
+                // console.log(this.)
+                this.musicCurrentTime=Math.floor(this.musicAudioObj.currentTime)
+                // this.musicCurrentTime=this.musicAudioObj.currentTime
+                console.log(this.musicCurrentTime)
+            },
+            lisen_music_ended() {
+                console.log('music.ended')
+                this.musicCurrentTime=0
+                this.playerStatus=1
             },
             time_second_len_beauty(second_value) {
                 return this.addPreZero(Math.floor(second_value/60))+':'+this.addPreZero((second_value%60))
@@ -421,10 +434,10 @@
                 //Todo 调用 音频对象方法，切换音频播放状态
                 switch (this.playerStatus) {
                     case 0:
-                        this.playerStatus = 1
+                        this.changePlayerStatusPaulse()
                         break
                     case 1:
-                        this.playerStatus = 0
+                        this.changePlayerStatusPlay()
                         break
                     default:
 
@@ -432,6 +445,11 @@
             },
             changePlayerStatusPlay() {
                 this.playerStatus = 0
+                this.musicAudioObj.play()
+            },
+            changePlayerStatusPaulse() {
+                this.playerStatus = 1
+                this.musicAudioObj.pause()
             },
             changeVolume(e) {
                 // this.volumeBarOffsetX=this.volumeBarOffsetX+e.offsetX
