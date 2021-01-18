@@ -50,7 +50,7 @@
                                             <div v-if="playMUsicListSelected.indexOf(i)>=0" class="iconfont icon-xuanzhong selected"></div>
                                         </div>
                                     </div>
-                                    <div  v-else-if="music.id===item.id" class="index-container">
+                                    <div  v-else-if="music.id===item.id && playListTabIndex===1" class="index-container">
                                         <div class="audio-icon unselectable">
                                             <div :class="is_music_playing?'column':'column paused'" style="animation-delay: -1.2s;"></div>
                                             <div :class="is_music_playing?'column':'column paused'"></div>
@@ -58,29 +58,29 @@
                                             <div :class="is_music_playing?'column':'column paused'" style="animation-delay: -0.9s;"></div>
                                             <div :class="is_music_playing?'column':'column paused'" style="animation-delay: -0.6s;"></div>
                                         </div>
-                                        <div v-if="playerStatus!=0"  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;" @click="playMusicItem(item)"></div>
-                                        <div v-else  class="iconfont icon-tingzhi-small operations color-red" style="font-size: 22px;margin-left: -2px;" @click="playMusicItem(item)"></div>
+                                        <div v-if="playerStatus!=0"  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;" @click="playMusicItem(item,'list')"></div>
+                                        <div v-else  class="iconfont icon-tingzhi-small operations color-red" style="font-size: 22px;margin-left: -2px;" @click="playMusicItem(item,'list')"></div>
                                     </div>
                                     <div  v-else class="index-container">
                                         <span  class="em index">{{addPreZero(i)}}</span>
                                         <div  class="iconfont icon-bofang-small operations" style="font-size: 22px;margin-left: -2px;" @click="playMusicItem(item)"></div>
                                     </div>
                                 </td>
-                                <td><a href="javascript:void(0);" @click="playMusicItemPlay(item)"
-                                       data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em" :style="music.id===item.id&&!playMusicListEditable?'color:red':''">{{item.title}}</span></a>
+                                <td><a href="javascript:void(0);" @click="playMusicItemPlay(item,'list')"
+                                       data-spm-anchor-id="a2oj1.12028080.player.1"><span class="em" :style="music.id===item.id&&!playMusicListEditable && playListTabIndex===1?'color:red':''">{{item.title}}</span></a>
                                 </td>
                                 <td>
                                     <div class="singers COMPACT"><a
                                             href="/artist/fc1a46e?spm=a2oj1.12028080.player.2.20156d99LputUC"
-                                            data-spm-anchor-id="a2oj1.12028080.player.2"  :style="music.id===item.id&&!playMusicListEditable?'color:red':''">{{item.artist}}</a></div>
+                                            data-spm-anchor-id="a2oj1.12028080.player.2"  :style="music.id===item.id&&!playMusicListEditable && playListTabIndex===1?'color:red':''">{{item.artist}}</a></div>
                                 </td>
                                 <td v-if="playMusicListEditable">
                                     <div class="duration-container not-editing"><span class="duration" >{{time_second_len_beauty(item.length)}}</span>
                                     </div>
                                 </td>
                                 <td v-else>
-                                    <div class="duration-container not-editing"><span class="duration editable"  :style="music.id===item.id?'color:red':''">{{time_second_len_beauty(item.length)}}</span>
-                                        <div :class="music.id!==item.id?'operations':'operations color-red'" style="font-size: 20px">
+                                    <div class="duration-container not-editing"><span class="duration editable"  :style="music.id===item.id && playListTabIndex===1?'color:red':''">{{time_second_len_beauty(item.length)}}</span>
+                                        <div :class="music.id!==item.id && playListTabIndex===1?'operations':'operations color-red'" style="font-size: 20px">
                                             <div class="iconfont icon-player_danqumanyou_" style="font-size: 20px"></div>
                                             <div :class="item.star?'favorite iconfont icon-xihuan color-red':'favorite iconfont icon-shoucang'" style="font-size: 20px" @click="switchFavorite(item)"></div>
                                             <div class="iconfont icon-lajitong" style="font-size: 20px" @click="switchPlayMusicCheckBoxStatus(i);removeSelected()"></div>
@@ -376,7 +376,7 @@
                 ext: "mp3",
                 group: "某专辑",
                 length: 270,
-                pic: "http://localhost/1.jpg",
+                pic: "http://localhost/2.jpg",
                 size: "",
                 src: "http://localhost/虾米音乐 - 爱如潮水.mp3",
                 title: "爱如潮水",
@@ -391,7 +391,7 @@
                 ext: "mp3",
                 group: "某专辑",
                 length: 186,
-                pic: "http://localhost/1.jpg",
+                pic: "http://localhost/3.jpg",
                 size: "",
                 src: "http://localhost/虾米音乐 - 爱在四月雪.mp3",
                 title: "爱在四月雪",
@@ -406,7 +406,7 @@
                 ext: "mp3",
                 group: "某专辑",
                 length: 196,
-                pic: "http://localhost/1.jpg",
+                pic: "http://localhost/4.jpg",
                 size: "",
                 src: "http://localhost/虾米音乐 - Super Star.mp3",
                 title: "Super Star",
@@ -414,6 +414,81 @@
                 quality: 'hq',//sd
             })
             this.musicPlayListBox.push({
+                id:5,
+                artist: "阿桑",
+                date: "2012-12-12",
+                description: "",
+                ext: "mp3",
+                group: "某专辑",
+                length: 149,
+                pic: "http://localhost/5.jpg",
+                size: "",
+                src: "http://localhost/虾米音乐 - 寂寞在唱歌.mp3",
+                title: "寂寞在唱歌",
+                star: false,
+                quality: 'hq',//sd
+            })
+            this.playListHistory.push({
+                id:1,
+                artist: "李昕融 / 樊桐舟",
+                date: "2012-12-12",
+                description: "",
+                ext: "mp3",
+                group: "某专辑",
+                length: 301,
+                pic: "http://localhost/1.jpg",
+                size: "",
+                src: "http://localhost/虾米音乐 - 爱的代价.mp3",
+                title: "爱的代价",
+                star: false,
+                quality: 'hq',//sd
+            })
+            this.playListHistory.push({
+                id:2,
+                artist: "张信哲",
+                date: "2012-12-12",
+                description: "",
+                ext: "mp3",
+                group: "某专辑",
+                length: 270,
+                pic: "http://localhost/1.jpg",
+                size: "",
+                src: "http://localhost/虾米音乐 - 爱如潮水.mp3",
+                title: "爱如潮水",
+                star: false,
+                quality: 'hq',//sd
+            })
+            this.playListHistory.push({
+                id:3,
+                artist: "赵成宇",
+                date: "2012-12-12",
+                description: "",
+                ext: "mp3",
+                group: "某专辑",
+                length: 186,
+                pic: "http://localhost/1.jpg",
+                size: "",
+                src: "http://localhost/虾米音乐 - 爱在四月雪.mp3",
+                title: "爱在四月雪",
+                star: false,
+                quality: 'hq',//sd
+            })
+            this.playListHistory.push({
+                id:4,
+                artist: "S.H.E",
+                date: "2012-12-12",
+                description: "",
+                ext: "mp3",
+                group: "某专辑",
+                length: 196,
+                pic: "http://localhost/1.jpg",
+                size: "",
+                src: "http://localhost/虾米音乐 - Super Star.mp3",
+                title: "Super Star",
+                star: false,
+                quality: 'hq',//sd
+            })
+            this.playListHistory.push({
                 id:5,
                 artist: "阿桑",
                 date: "2012-12-12",
@@ -430,7 +505,7 @@
             })
             this.music=this.musicPlayListBox[0]
             console.log(this.musicPlayListBox)
-            this.playListHistory=[]
+            // this.playListHistory=[]
             //Todo 初始化音量 this.volume值,
             this.initAudioObj()
             console.log(this.musicAudioObj)
@@ -704,17 +779,24 @@
 
                 this.playMUsicListSelected=[]
             },
-            playMusicItem(item) {
+            playMusicItem(item,from=undefined) {
                 //Todo 发送请求保存当前播放的音乐
                 const tmp = Object.assign({},this.music)
                 this.music=item
+                //跳转播放列表.
+                if(this.find_index_of_play_list(this.music)<0)this.musicPlayListBox.push(this.music)
+                if(from==='list')if(this.playListTabIndex!==1)this.selectTab(1)
                 tmp['id']===this.music['id']?this.changePlayerStatus():this.changePlayerStatusPlay()
                 // console.log(this.playerStatus)
             },
-            playMusicItemPlay(item) {
+            playMusicItemPlay(item,from=undefined) {
                 //Todo 发送请求保存当前播放的音乐
                 const tmp = Object.assign({},this.music)
                 this.music=item
+                //跳转播放列表.
+                if(this.find_index_of_play_list(this.music)<0)this.musicPlayListBox.push(this.music)
+                if(from==='list')if(this.playListTabIndex!==1)this.selectTab(1)
+
                 this.initAudioObj()
                 this.changePlayerStatusPlay()
                 // console.log(this.playerStatus)
@@ -727,12 +809,19 @@
                 //选择歌曲写入 music
                 this.playMusicItemPlay(this.selectPrevMusicByPlayMode())
             },
+            find_index_of_play_list(item) {
+                if(this.musicPlayListBox===null||this.musicPlayListBox===undefined||this.musicPlayListBox.length<1)return -1
+                for (i=0;i<this.musicPlayListBox.length;i++){
+                    if(this.musicPlayListBox[i]['id']===item['id'])return i;
+                }
+                return -1
+            },
             selectPrevMusicByPlayMode() {
                 if(this.musicPlayListBox===undefined||this.musicPlayListBox===null||this.musicPlayListBox.length<1)return undefined;
                 switch (this.playMode){
                     case 1:
                         //列表循环
-                        return 0===this.musicPlayListBox.indexOf(this.music)?this.musicPlayListBox[this.musicPlayListBox.length-1]:this.musicPlayListBox[this.musicPlayListBox.indexOf(this.music)-1]
+                        return 0===this.find_index_of_play_list(this.music)?this.musicPlayListBox[this.musicPlayListBox.length-1]:this.musicPlayListBox[this.find_index_of_play_list(this.music)-1]
                     case 2:
                         //单曲循环
                         return this.music
@@ -746,7 +835,7 @@
                 switch (this.playMode){
                     case 1:
                         //列表循环
-                        return this.musicPlayListBox.length-1===this.musicPlayListBox.indexOf(this.music)?this.musicPlayListBox[0]:this.musicPlayListBox[this.musicPlayListBox.indexOf(this.music)+1]
+                        return this.musicPlayListBox.length-1===this.find_index_of_play_list(this.music)?this.musicPlayListBox[0]:this.musicPlayListBox[this.find_index_of_play_list(this.music)+1]
                     case 2:
                         //单曲循环
                         return this.music
