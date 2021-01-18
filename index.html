@@ -391,6 +391,7 @@
                     quality: 'hq',//sd
                 })
             }
+            //Todo 初始化音量 this.volume值,
             this.initAudioObj()
             console.log(this.musicAudioObj)
         },
@@ -462,6 +463,7 @@
             },
             changePlayerStatusPlay() {
                 this.playerStatus = 0
+                // this.initAudioObj()
                 this.musicAudioObj.play()
             },
             changePlayerStatusPaulse() {
@@ -583,6 +585,7 @@
             setPlayProgress(value) {
                 // this.$refs.handleMusicProgress.style.right = (100-value) + '%'
                 this.musicCurrentTime=Math.floor(this.musicDuration*(value/100))
+                this.musicAudioObj.currentTime=this.musicDuration*(value/100)
 
             },
             selectTab(index) {
