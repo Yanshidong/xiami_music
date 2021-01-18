@@ -165,11 +165,11 @@
         </div>
         <div class="main-control-wrapper">
             <div class="main-control">
-                <div class="prev iconfont icon-shangyishou" title="上一首"></div>
+                <div class="prev iconfont icon-shangyishou" title="上一首" v-on:click="playPrevMusic"></div>
                 <div class="play-btn" v-on:click="changePlayerStatus">
                     <span :class="main_play_btn_class" title="暂停"></span>
                 </div>
-                <div class="next iconfont icon-xiayishou" title="下一首"></div>
+                <div class="next iconfont icon-xiayishou" title="下一首" v-on:click="playNextMusic"></div>
             </div>
         </div>
         <div class="tuning">
@@ -352,25 +352,82 @@
         },
         created(){
             //Todo 应当获取用户的播放列表和播放历史列表，另外还应当初始化用户最后播放的歌曲到 this.music
-            this.musicPlayListBox=[]
             // this.musicPlayListBox
-            for(i=0;i<30;i++){
-                this.musicPlayListBox.push({
-                    id:i,
-                    artist: "李昕融 / 樊桐舟",
-                    date: "2012-12-12",
-                    description: "",
-                    ext: "mp3",
-                    group: "某专辑",
-                    length: 104,
-                    pic: "http://localhost/1.jpg",
-                    size: "",
-                    src: "http://localhost/1.mp3",
-                    title: "你笑起来真好看",
-                    star: false,
-                    quality: 'hq',//sd
-                })
-            }
+            this.musicPlayListBox.push({
+                id:1,
+                artist: "李昕融 / 樊桐舟",
+                date: "2012-12-12",
+                description: "",
+                ext: "mp3",
+                group: "某专辑",
+                length: 301,
+                pic: "http://localhost/1.jpg",
+                size: "",
+                src: "http://localhost/虾米音乐 - 爱的代价.mp3",
+                title: "爱的代价",
+                star: false,
+                quality: 'hq',//sd
+            })
+            this.musicPlayListBox.push({
+                id:2,
+                artist: "张信哲",
+                date: "2012-12-12",
+                description: "",
+                ext: "mp3",
+                group: "某专辑",
+                length: 270,
+                pic: "http://localhost/1.jpg",
+                size: "",
+                src: "http://localhost/虾米音乐 - 爱如潮水.mp3",
+                title: "爱如潮水",
+                star: false,
+                quality: 'hq',//sd
+            })
+            this.musicPlayListBox.push({
+                id:3,
+                artist: "赵成宇",
+                date: "2012-12-12",
+                description: "",
+                ext: "mp3",
+                group: "某专辑",
+                length: 186,
+                pic: "http://localhost/1.jpg",
+                size: "",
+                src: "http://localhost/虾米音乐 - 爱在四月雪.mp3",
+                title: "爱在四月雪",
+                star: false,
+                quality: 'hq',//sd
+            })
+            this.musicPlayListBox.push({
+                id:4,
+                artist: "S.H.E",
+                date: "2012-12-12",
+                description: "",
+                ext: "mp3",
+                group: "某专辑",
+                length: 196,
+                pic: "http://localhost/1.jpg",
+                size: "",
+                src: "http://localhost/虾米音乐 - Super Star.mp3",
+                title: "Super Star",
+                star: false,
+                quality: 'hq',//sd
+            })
+            this.musicPlayListBox.push({
+                id:5,
+                artist: "阿桑",
+                date: "2012-12-12",
+                description: "",
+                ext: "mp3",
+                group: "某专辑",
+                length: 149,
+                pic: "http://localhost/1.jpg",
+                size: "",
+                src: "http://localhost/虾米音乐 - 寂寞在唱歌.mp3",
+                title: "寂寞在唱歌",
+                star: false,
+                quality: 'hq',//sd
+            })
             this.music=this.musicPlayListBox[0]
             console.log(this.musicPlayListBox)
             this.playListHistory=[]
@@ -434,12 +491,13 @@
                 // console.log(this.)
                 this.musicCurrentTime=Math.floor(this.musicAudioObj.currentTime)
                 // this.musicCurrentTime=this.musicAudioObj.currentTime
-                console.log(this.musicCurrentTime)
+                // console.log(this.musicCurrentTime)
             },
             lisen_music_ended() {
                 console.log('music.ended')
-                this.musicCurrentTime=0
-                this.playerStatus=1
+                // this.musicCurrentTime=0
+                // this.playerStatus=1
+                this.playNextMusic()
             },
             changeVolumeValue(vp) {
                 this.volume=vp
@@ -675,6 +733,42 @@
                 this.initAudioObj()
                 this.changePlayerStatusPlay()
                 // console.log(this.playerStatus)
+            },
+            playNextMusic() {
+                //选择歌曲写入 music
+                this.playMusicItemPlay(this.selectNextMusicByPlayMode())
+            },
+            playPrevMusic() {
+                //选择歌曲写入 music
+                this.playMusicItemPlay(this.selectPrevMusicByPlayMode())
+            },
+            selectPrevMusicByPlayMode() {
+                if(this.musicPlayListBox===undefined||this.musicPlayListBox===null||this.musicPlayListBox.length<1)return undefined;
+                switch (this.playMode){
+                    case 1:
+                        //列表循环
+                        return 0===this.musicPlayListBox.indexOf(this.music)?this.musicPlayListBox[this.musicPlayListBox.length-1]:this.musicPlayListBox[this.musicPlayListBox.indexOf(this.music)-1]
+                    case 2:
+                        //单曲循环
+                        return this.music
+                    case 3:
+                        //随机播放
+                        return this.musicPlayListBox[Math.floor(Math.random() * (this.musicPlayListBox.length))];
+                }
+            },
+            selectNextMusicByPlayMode() {
+                if(this.musicPlayListBox===undefined||this.musicPlayListBox===null||this.musicPlayListBox.length<1)return undefined;
+                switch (this.playMode){
+                    case 1:
+                        //列表循环
+                        return this.musicPlayListBox.length-1===this.musicPlayListBox.indexOf(this.music)?this.musicPlayListBox[0]:this.musicPlayListBox[this.musicPlayListBox.indexOf(this.music)+1]
+                    case 2:
+                        //单曲循环
+                        return this.music
+                    case 3:
+                        //随机播放
+                        return this.musicPlayListBox[Math.floor(Math.random() * (this.musicPlayListBox.length))];
+                }
             }
         }
     })

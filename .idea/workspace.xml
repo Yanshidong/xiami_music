@@ -85,7 +85,7 @@
       <workItem from="1610853477569" duration="12000" />
       <workItem from="1610855198214" duration="593000" />
       <workItem from="1610929715539" duration="605000" />
-      <workItem from="1610934432473" duration="728000" />
+      <workItem from="1610934432473" duration="4781000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -332,14 +332,20 @@
       <option name="project" value="LOCAL" />
       <updated>1610934517721</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="播放暂停正常，但是">
+      <created>1610935284935</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1610935284935</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="时长进度条" />
     <MESSAGE value="时长进度条关联时长和百分比.&#10;刚刷新时会闪动" />
     <MESSAGE value="歌曲清单，未知还需要调整下" />
     <MESSAGE value="歌曲清单列表样式." />
@@ -364,6 +370,7 @@
     <MESSAGE value="可播放可暂停." />
     <MESSAGE value="音量调整" />
     <MESSAGE value="播放列表里点击的音乐" />
-    <option name="LAST_COMMIT_MESSAGE" value="播放列表里点击的音乐" />
+    <MESSAGE value="播放暂停正常，但是" />
+    <option name="LAST_COMMIT_MESSAGE" value="播放暂停正常，但是" />
   </component>
 </project>
