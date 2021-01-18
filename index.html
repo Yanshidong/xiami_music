@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -43,7 +43,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="music-list-tr" draggable="true" v-for="(item,i) in musicPlayList">
+                            <tr class="music-list-tr" draggable="true" v-for="(item,i) in musicPlayList"  v-bind:key="item.id">
                                 <td>
                                     <div v-if="playMusicListEditable" class="index-container">
                                         <div class="checkbox unselectable" @click="switchPlayMusicCheckBoxStatus(i)">
@@ -193,53 +193,6 @@
     </div>
 </div>
 <script type="text/javascript">
-    // const firebase = require("firebase");
-    // // Required for side-effects
-    // require("firebase/firestore")
-    function randomString(e) {
-        e = e || 32;
-        var t = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678",
-            a = t.length,
-            n = "";
-        for (i = 0; i < e; i++) n += t.charAt(Math.floor(Math.random() * a));
-        return n
-    }
-    // var firebaseConfig = {
-    //     apiKey: "AIzaSyBrMj6ibGNdpDdWCYm4DW6Zlc__ezpjD7U",
-    //     authDomain: "xiami-7831d.firebaseapp.com",
-    //     projectId: "xiami-7831d",
-    //     storageBucket: "xiami-7831d.appspot.com",
-    //     messagingSenderId: "1058535637951",
-    //     appId: "1:1058535637951:web:da831b3b1ef3de8185570a",
-    //     measurementId: "G-58T74XN778"
-    // };
-    // // Initialize Firebase
-    // firebase.initializeApp(firebaseConfig);
-    // var db = firebase.firestore();
-    // db.collection('music').add({
-    //     id:Date.parse(new Date())/1000,
-    //     artist: randomString(5),
-    //     date: "2012-12-12",
-    //     description: "",
-    //     ext: "",
-    //     group: randomString(3),
-    //     length: "",
-    //     pic: "",
-    //     size: "",
-    //     src: "",
-    //     title: randomString(6),
-    //     star: true,
-    //     quality: 'hq',//sd
-    // }).then(function(docRef) {
-    //         console.log("Document written with ID: ", docRef.id);
-    //     })
-    //     .catch(function(error) {
-    //         console.error("Error adding document: ", error);
-    //     });
-    // mref=db.collection('music').get().then(function (res){
-    //     console.log(res)
-    // });
-    // console.log(mref)
     //以上非vue部分，属测试部分
     new Vue({
         el: '#rjs-player',
