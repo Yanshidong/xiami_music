@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4e340389-6999-467a-968b-a60ddbd6a697" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,11 @@
       <workItem from="1610584912790" duration="2000" />
       <workItem from="1610603475426" duration="13291000" />
       <workItem from="1610695821422" duration="4937000" />
-      <workItem from="1610789674429" duration="2202000" />
+      <workItem from="1610789674429" duration="3065000" />
+      <workItem from="1610850682065" duration="6000" />
+      <workItem from="1610853477569" duration="12000" />
+      <workItem from="1610855198214" duration="593000" />
+      <workItem from="1610929715539" duration="605000" />
     </task>
     <task id="LOCAL-00001" summary="很强的队友，靠谱">
       <created>1609810243229</created>
@@ -313,14 +316,20 @@
       <option name="project" value="LOCAL" />
       <updated>1610790695771</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="播放列表里点击的音乐">
+      <created>1610792170591</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1610792170591</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加歌词面板." />
     <MESSAGE value="时长进度条" />
     <MESSAGE value="时长进度条关联时长和百分比.&#10;刚刷新时会闪动" />
     <MESSAGE value="歌曲清单，未知还需要调整下" />
@@ -345,6 +354,7 @@
     <MESSAGE value="加载音乐时初始化音乐时长等数据." />
     <MESSAGE value="可播放可暂停." />
     <MESSAGE value="音量调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="音量调整" />
+    <MESSAGE value="播放列表里点击的音乐" />
+    <option name="LAST_COMMIT_MESSAGE" value="播放列表里点击的音乐" />
   </component>
 </project>
