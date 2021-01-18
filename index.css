@@ -103,6 +103,16 @@ a {
     white-space: nowrap;
     cursor: pointer;
     margin-left: -68.699px;
+
+    bottom: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-transition: opacity 1.5s,-webkit-transform .25s;
+    transition: opacity 1.5s,-webkit-transform .25s;
+    -o-transition: opacity 1.5s,transform .25s;
+    transition: opacity 1.5s,transform .25s;
+    transition: opacity 1.5s,transform .25s,-webkit-transform .25s;
 }
 .player-bar {
     line-height: 1.15;
